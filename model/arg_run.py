@@ -83,7 +83,7 @@ if __name__ == "__main__":
     save_path = f"model_data/reid_model_best_{run_id}.pth"
 
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
+    DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
 
     logging.info(f"Using device: {DEVICE}")
     if torch.cuda.is_available():
