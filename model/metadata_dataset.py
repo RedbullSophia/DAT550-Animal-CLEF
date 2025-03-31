@@ -49,7 +49,7 @@ class WildlifeMetadataDataset(Dataset):
             self.image_paths.append(full_path)
             self.labels.append(self.class_to_idx[identity])
 
-        print(f"✅ Loaded {len(self.image_paths)} images across {len(self.class_to_idx)} identities.")
+        print(f"Loaded {len(self.image_paths)} images across {len(self.class_to_idx)} identities.")
 
     def __len__(self):
         return len(self.image_paths)
