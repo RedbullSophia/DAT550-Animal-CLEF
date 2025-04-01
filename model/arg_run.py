@@ -18,14 +18,15 @@ import time
 # ======================
 # LOGGING SETUP
 # ======================
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("training.log")
-    ]
-)
+def setup_logging(save_path):
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(os.path.join(save_path, "model_log.txt"))
+        ]
+    )
 
 # ======================
 # TRAINING FUNCTION
@@ -60,7 +61,7 @@ def train(model, train_loader, optimizer, loss_fn, scaler, device, save_path, nu
 
         if avg_loss < best_loss:
             best_loss = avg_loss
-            torch.save(model.state_dict(), save_path)
+            torch.save(model.state_dict(), save_path+"trained_model.pth")
             logging.info(f" Saved new best model at epoch {epoch+1}")
 
 
@@ -80,10 +81,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
-    save_path = f"model_data/reid_model_best_{run_id}.pth"
+    save_path = f"model_data/bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
+    os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists
+
+    setup_logging(save_path)  # Initialize logging with the dynamic path
 
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
+    #DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
+    DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
 
     logging.info(f"Using device: {DEVICE}")
     if torch.cuda.is_available():
