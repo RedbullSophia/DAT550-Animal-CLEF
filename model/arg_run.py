@@ -25,7 +25,8 @@ def setup_logging(save_path):
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler(os.path.join(save_path, "model_log.txt"))
+            logging.FileHandler(os.path.join(save_path, "model_log.txt")),
+            logging.FileHandler("/home/stud/aleks99/bhome/models/model_log.txt")
         ]
     )
 
@@ -66,8 +67,15 @@ def train(model, train_loader, optimizer, loss_fn, scaler, device, save_path, nu
 
         if avg_loss < best_loss:
             best_loss = avg_loss
-            torch.save(model.state_dict(), save_path+"trained_model.pth")
+            model_save_path = save_path + "trained_model.pth"
+            torch.save(model.state_dict(), model_save_path)
             logging.info(f" Saved new best model at epoch {epoch+1}")
+
+            # Save a copy to the additional directory
+            additional_save_path = "/home/stud/aleks99/bhome/models/"
+            os.makedirs(additional_save_path, exist_ok=True)
+            torch.save(model.state_dict(), os.path.join(additional_save_path, "trained_model.pth"))
+            logging.info(f" Saved a copy of the model to {additional_save_path}")
 
 
 # ======================
