@@ -1,0 +1,15 @@
+2025-04-01 21:13:38,837 [INFO] Using device: cuda
+2025-04-01 21:13:38,840 [INFO] GPU: NVIDIA GeForce RTX 3080
+2025-04-01 21:13:38,840 [INFO] Loading dataset...
+2025-04-01 21:13:39,400 [INFO] PyTorch version 2.5.1+cu121 available.
+2025-04-01 21:13:40,621 [INFO] Loading pretrained weights from Hugging Face hub (timm/resnet18.a1_in1k)
+2025-04-01 21:13:40,892 [INFO] [timm/resnet18.a1_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-01 21:13:41,371 [INFO] Started epoch 1
+2025-04-01 21:15:04,187 [INFO] [Epoch 1] ArcFace Loss: 15.6812
+2025-04-01 21:15:04,188 [INFO]  Epoch time: 82.82 sec
+2025-04-01 21:15:04,257 [INFO]  Saved new best model at epoch 1
+2025-04-01 21:15:04,257 [INFO] Started epoch 2
+2025-04-01 21:16:20,622 [INFO] [Epoch 2] ArcFace Loss: 12.3968
+2025-04-01 21:16:20,622 [INFO]  Epoch time: 76.37 sec
+2025-04-01 21:16:20,698 [INFO]  Saved new best model at epoch 2
+2025-04-01 21:16:20,699 [INFO] Started epoch 3
