@@ -21,7 +21,7 @@ class WildlifeMetadataDataset(Dataset):
         # Load metadata
         dataset = WildlifeReID10k(root_data, check_files=False)
         metadata = dataset.metadata
-	if n < 120000
+        if n < 100000:
             metadata = metadata.sample(n=n, random_state=42)  # Use a smaller subset
 
 
