@@ -1,0 +1,36 @@
+/bin/bash: /opt/miniconda39/lib/libtinfo.so.6: no version information available (required by /bin/bash)
+CUDA is a parallel computing platform for computing on GPUs, https://developer.nvidia.com/cuda-toolkit
+prepending to __UENV: cuda-11.4.4
+setting env CUDA_HOME=/usr/local/_cuda/cuda-11.4.4_ubuntu22
+prepending to PATH: /usr/local/_cuda/cuda-11.4.4_ubuntu22/bin
+prepending to LD_LIBRARY_PATH: /usr/local/_cuda/cuda-11.4.4_ubuntu22/lib64
+
+
+A GPU-accelerated library of primitives for deep neural networks, https://developer.nvidia.com/cudnn
+prepending to __UENV: cudnn-11.x-8.8.0
+prepending to LD_LIBRARY_PATH: /usr/local/_cuda/cudnn-11.x-8.8.0/lib
+
+
+
+Python 3.11.5
+2025-04-01 00:24:56,869 [INFO] Using device: cuda
+2025-04-01 00:24:56,941 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-01 00:24:56,944 [INFO] Loading dataset...
+2025-04-01 00:24:59,531 [INFO] PyTorch version 2.6.0 available.
+Loaded 3958 images across 2372 identities.
+/home/stud/aleks99/.local/lib/python3.11/site-packages/torch/utils/data/dataloader.py:624: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(
+2025-04-01 00:25:02,974 [INFO] Loading pretrained weights from Hugging Face hub (timm/mobilenetv3_small_100.lamb_in1k)
+2025-04-01 00:25:03,346 [INFO] [timm/mobilenetv3_small_100.lamb_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+/mnt/beegfs/home/aleks99/DAT550-Animal-CLEF/model/arg_run.py:119: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+2025-04-01 00:25:04,896 [INFO] Started epoch 1
+/mnt/beegfs/home/aleks99/DAT550-Animal-CLEF/model/arg_run.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+Traceback (most recent call last):
+  File "/mnt/beegfs/home/aleks99/DAT550-Animal-CLEF/model/arg_run.py", line 121, in <module>
+    train(model, train_loader, optimizer, loss_fn, scaler, DEVICE, save_path, args.num_epochs)
+  File "/mnt/beegfs/home/aleks99/DAT550-Animal-CLEF/model/arg_run.py", line 57, in train
+    avg_loss = total_loss / len(train_loader)
+               ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: float division by zero
