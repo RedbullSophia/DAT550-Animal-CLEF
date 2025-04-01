@@ -25,8 +25,7 @@ def setup_logging(save_path):
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler(os.path.join(save_path, "model_log.txt")),
-            logging.FileHandler("/home/stud/aleks99/bhome/models/model_log.txt")
+            logging.FileHandler(os.path.join(save_path, "model_log.txt"))
         ]
     )
 
@@ -67,15 +66,8 @@ def train(model, train_loader, optimizer, loss_fn, scaler, device, save_path, nu
 
         if avg_loss < best_loss:
             best_loss = avg_loss
-            model_save_path = save_path + "trained_model.pth"
-            torch.save(model.state_dict(), model_save_path)
+            torch.save(model.state_dict(), save_path+"trained_model.pth")
             logging.info(f" Saved new best model at epoch {epoch+1}")
-
-            # Save a copy to the additional directory
-            additional_save_path = "/home/stud/aleks99/bhome/models/"
-            os.makedirs(additional_save_path, exist_ok=True)
-            torch.save(model.state_dict(), os.path.join(additional_save_path, "trained_model.pth"))
-            logging.info(f" Saved a copy of the model to {additional_save_path}")
 
 
 # ======================
@@ -100,8 +92,8 @@ if __name__ == "__main__":
     setup_logging(save_path)  # Initialize logging with the dynamic path
 
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
-    #DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
+    #DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
+    DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
 
     logging.info(f"Using device: {DEVICE}")
     if torch.cuda.is_available():
