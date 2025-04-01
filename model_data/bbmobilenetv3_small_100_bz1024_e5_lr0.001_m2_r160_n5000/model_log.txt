@@ -16,3 +16,10 @@
 2025-04-01 19:36:24,221 [INFO]  Epoch time: 58.03 sec
 2025-04-01 19:36:24,250 [INFO]  Saved new best model at epoch 3
 2025-04-01 19:36:24,250 [INFO] Started epoch 4
+2025-04-01 19:37:24,133 [INFO] [Epoch 4] ArcFace Loss: 10.4843
+2025-04-01 19:37:24,133 [INFO]  Epoch time: 59.88 sec
+2025-04-01 19:37:24,162 [INFO]  Saved new best model at epoch 4
+2025-04-01 19:37:24,162 [INFO] Started epoch 5
+2025-04-01 19:38:24,992 [INFO] [Epoch 5] ArcFace Loss: 8.4087
+2025-04-01 19:38:24,993 [INFO]  Epoch time: 60.83 sec
+2025-04-01 19:38:25,023 [INFO]  Saved new best model at epoch 5
