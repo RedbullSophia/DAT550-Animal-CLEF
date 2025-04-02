@@ -1,3 +1,0 @@
-2025-04-01 20:27:23,721 [INFO] Using device: cpu
-2025-04-01 20:27:23,722 [INFO] Loading dataset...
-2025-04-01 20:27:27,439 [INFO] PyTorch version 2.5.1 available.
