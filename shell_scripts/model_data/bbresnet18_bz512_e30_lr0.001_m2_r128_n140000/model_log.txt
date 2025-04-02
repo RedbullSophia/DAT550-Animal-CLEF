@@ -1,0 +1,7 @@
+2025-04-01 21:25:28,873 [INFO] Using device: cuda
+2025-04-01 21:25:28,945 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-01 21:25:28,948 [INFO] Loading dataset...
+2025-04-01 21:25:31,338 [INFO] PyTorch version 2.6.0 available.
+2025-04-01 21:25:39,734 [INFO] Loading pretrained weights from Hugging Face hub (timm/resnet18.a1_in1k)
+2025-04-01 21:25:39,946 [INFO] [timm/resnet18.a1_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-01 21:25:41,008 [INFO] Started epoch 1
