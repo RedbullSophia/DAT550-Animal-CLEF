@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --gres=gpu:0
+#SBATCH --gres=gpu:2
 #SBATCH --partition=gpu
 #SBATCH --time=20:15:00
 #SBATCH --job-name=train1
@@ -15,9 +15,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 # Run your Python script with args
 python -u ../model/arg_run.py \
   --backbone resnet18 \
-  --batch_size 6144 \
-  --num_epochs 50 \
+  --batch_size 2048 \
+  --num_epochs 30 \
   --lr 0.001 \
-  --m 3 \
-  --resize 160 \
+  --m 4 \
+  --resize 210 \
   --n 140000

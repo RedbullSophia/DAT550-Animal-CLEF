@@ -14,10 +14,10 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 # Run your Python script with args
 python -u ../model/arg_run.py \
-  --backbone resnet50 \
-  --batch_size 6144 \
+  --backbone resnet18 \
+  --batch_size 1024 \
   --num_epochs 50 \
   --lr 0.001 \
-  --m 3 \
-  --resize 160 \
+  --m 4 \
+  --resize 210 \
   --n 140000

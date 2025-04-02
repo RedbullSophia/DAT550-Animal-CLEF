@@ -86,7 +86,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
-    save_path = f"model_data/bb{args.backbone}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
+    save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bb{args.backbone}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
     os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists
 
     setup_logging(save_path)  # Initialize logging with the dynamic path
