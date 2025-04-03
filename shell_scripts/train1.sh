@@ -12,18 +12,20 @@ python --version
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# Run your Python script with args
+# Run your Python script with args - ResNet18 with heavy regularization
 python -u ../model/arg_run.py \
   --remote \
   --backbone resnet18 \
-  --batch_size 64 \
+  --batch_size 128 \
   --num_epochs 30 \
-  --lr 0.0005 \
+  --lr 0.0003 \
   --m 4 \
   --resize 224 \
   --n 140000 \
-  --weight_decay 1e-4 \
-  --dropout 0.3 \
+  --weight_decay 5e-4 \
+  --dropout 0.5 \
   --scheduler cosine \
-  --patience 7 \
-  --augmentation
+  --patience 10 \
+  --augmentation \
+  --embedding_dim 256 \
+  --margin 0.3

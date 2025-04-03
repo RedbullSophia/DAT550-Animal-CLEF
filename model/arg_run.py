@@ -143,7 +143,7 @@ if __name__ == "__main__":
     parser.add_argument("--val_split", type=float, default=0.2, help="Validation split ratio")
     # Add new arguments
     parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for optimizer")
-    parser.add_argument("--dropout", type=float, default=0.0, help="Dropout rate (0 to disable)")
+    parser.add_argument("--dropout", type=float, default=0.3, help="Dropout rate (0 to disable)")
     parser.add_argument("--scheduler", type=str, default="plateau", choices=["plateau", "cosine", "none"], help="LR scheduler type")
     parser.add_argument("--patience", type=int, default=5, help="Patience for early stopping (0 to disable)")
     parser.add_argument("--augmentation", action="store_true", help="Use data augmentation")
@@ -166,6 +166,26 @@ if __name__ == "__main__":
     os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists
 
     setup_logging(save_path)  # Initialize logging with the dynamic path
+
+    # Log all arguments for reference
+    logging.info("=== TRAINING CONFIGURATION ===")
+    logging.info(f"Backbone: {args.backbone}")
+    logging.info(f"Batch size: {args.batch_size}")
+    logging.info(f"Epochs: {args.num_epochs}")
+    logging.info(f"Learning rate: {args.lr}")
+    logging.info(f"Images per class (M): {args.m}")
+    logging.info(f"Image size: {args.resize}x{args.resize}")
+    logging.info(f"Dataset size (n): {args.n}")
+    logging.info(f"Validation split: {args.val_split}")
+    logging.info(f"Weight decay: {args.weight_decay}")
+    logging.info(f"Dropout rate: {args.dropout}")
+    logging.info(f"Scheduler: {args.scheduler}")
+    logging.info(f"Early stopping patience: {args.patience}")
+    logging.info(f"Data augmentation: {args.augmentation}")
+    logging.info(f"Embedding dimension: {args.embedding_dim}")
+    logging.info(f"ArcFace margin: {args.margin}")
+    logging.info(f"ArcFace scale: {args.scale}")
+    logging.info("=============================")
 
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
