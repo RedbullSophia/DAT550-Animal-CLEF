@@ -16,7 +16,6 @@ __pycache__/
 *.pth
 
 
-
 # Distribution / packaging
 .Python
 build/

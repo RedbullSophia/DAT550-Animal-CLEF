@@ -1,0 +1,12 @@
+~/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+~/bhome/DAT550-Animal-CLEF
+/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+
+/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/
+
+scp -r -o ProxyJump=aleks99@ssh1.ux.uis.no aleks99@gorina11.ux.uis.no:/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data ./modeller/
+
+curl -F "file=@model_data.tar.gz" https://0x0.st
+https://0x0.st/82gU.tar.gz
+
+PS C:\Users\trade\Downloads> tar -xzf mods.tar.gz -C C:\modeller

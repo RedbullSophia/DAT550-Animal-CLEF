@@ -17,7 +17,9 @@ python -u ../model/arg_run.py \
   --backbone resnet18 \
   --batch_size 512 \
   --num_epochs 3 \
-  --lr 0.001 \
+  --lr 0.0005 \
   --m 2 \
   --resize 160 \
-  --n 2000
+  --n 2000 \
+  --weight_decay 1e-4 \
+  --scheduler plateau

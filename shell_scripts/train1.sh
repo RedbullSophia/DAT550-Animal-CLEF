@@ -18,7 +18,12 @@ python -u ../model/arg_run.py \
   --backbone resnet18 \
   --batch_size 64 \
   --num_epochs 30 \
-  --lr 0.001 \
+  --lr 0.0005 \
   --m 4 \
-  --resize 160 \
-  --n 140000
+  --resize 224 \
+  --n 140000 \
+  --weight_decay 1e-4 \
+  --dropout 0.3 \
+  --scheduler cosine \
+  --patience 7 \
+  --augmentation
