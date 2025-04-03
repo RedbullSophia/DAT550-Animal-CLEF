@@ -133,3 +133,56 @@
 2025-04-02 11:39:38,137 [INFO]  Epoch time: 1529.11 sec
 2025-04-02 11:39:38,271 [INFO]  Saved new best model at epoch 32
 2025-04-02 11:39:38,273 [INFO] Started epoch 33
+2025-04-02 12:05:19,134 [INFO] [Epoch 33] ArcFace Loss: 0.1106
+2025-04-02 12:05:19,136 [INFO]  Epoch time: 1540.86 sec
+2025-04-02 12:05:19,255 [INFO]  Saved new best model at epoch 33
+2025-04-02 12:05:19,257 [INFO] Started epoch 34
+2025-04-02 12:31:19,779 [INFO] [Epoch 34] ArcFace Loss: 0.1101
+2025-04-02 12:31:19,780 [INFO]  Epoch time: 1560.52 sec
+2025-04-02 12:31:19,898 [INFO]  Saved new best model at epoch 34
+2025-04-02 12:31:19,900 [INFO] Started epoch 35
+2025-04-02 12:58:17,421 [INFO] [Epoch 35] ArcFace Loss: 0.1001
+2025-04-02 12:58:17,423 [INFO]  Epoch time: 1617.52 sec
+2025-04-02 12:58:17,548 [INFO]  Saved new best model at epoch 35
+2025-04-02 12:58:17,550 [INFO] Started epoch 36
+2025-04-02 13:26:20,073 [INFO] [Epoch 36] ArcFace Loss: 0.0993
+2025-04-02 13:26:20,076 [INFO]  Epoch time: 1682.53 sec
+2025-04-02 13:26:20,239 [INFO]  Saved new best model at epoch 36
+2025-04-02 13:26:20,241 [INFO] Started epoch 37
+2025-04-02 13:54:18,559 [INFO] [Epoch 37] ArcFace Loss: 0.0896
+2025-04-02 13:54:18,561 [INFO]  Epoch time: 1678.32 sec
+2025-04-02 13:54:18,676 [INFO]  Saved new best model at epoch 37
+2025-04-02 13:54:18,677 [INFO] Started epoch 38
+2025-04-02 14:23:58,441 [INFO] [Epoch 38] ArcFace Loss: 0.0866
+2025-04-02 14:23:58,443 [INFO]  Epoch time: 1779.77 sec
+2025-04-02 14:23:58,563 [INFO]  Saved new best model at epoch 38
+2025-04-02 14:23:58,565 [INFO] Started epoch 39
+2025-04-02 14:51:14,467 [INFO] [Epoch 39] ArcFace Loss: 0.0864
+2025-04-02 14:51:14,469 [INFO]  Epoch time: 1635.90 sec
+2025-04-02 14:51:14,597 [INFO]  Saved new best model at epoch 39
+2025-04-02 14:51:14,598 [INFO] Started epoch 40
+2025-04-02 15:19:09,676 [INFO] [Epoch 40] ArcFace Loss: 0.0800
+2025-04-02 15:19:09,677 [INFO]  Epoch time: 1675.08 sec
+2025-04-02 15:19:09,816 [INFO]  Saved new best model at epoch 40
+2025-04-02 15:19:09,818 [INFO] Started epoch 41
+2025-04-02 15:45:50,558 [INFO] [Epoch 41] ArcFace Loss: 0.0708
+2025-04-02 15:45:50,560 [INFO]  Epoch time: 1600.74 sec
+2025-04-02 15:45:50,683 [INFO]  Saved new best model at epoch 41
+2025-04-02 15:45:50,685 [INFO] Started epoch 42
+2025-04-02 16:11:55,537 [INFO] [Epoch 42] ArcFace Loss: 0.0780
+2025-04-02 16:11:55,538 [INFO]  Epoch time: 1564.85 sec
+2025-04-02 16:11:55,539 [INFO] Started epoch 43
+2025-04-02 16:37:58,015 [INFO] [Epoch 43] ArcFace Loss: 0.0710
+2025-04-02 16:37:58,017 [INFO]  Epoch time: 1562.48 sec
+2025-04-02 16:37:58,018 [INFO] Started epoch 44
+2025-04-02 17:03:43,185 [INFO] [Epoch 44] ArcFace Loss: 0.0721
+2025-04-02 17:03:43,186 [INFO]  Epoch time: 1545.17 sec
+2025-04-02 17:03:43,188 [INFO] Started epoch 45
+2025-04-02 17:29:35,546 [INFO] [Epoch 45] ArcFace Loss: 0.0470
+2025-04-02 17:29:35,548 [INFO]  Epoch time: 1552.36 sec
+2025-04-02 17:29:35,668 [INFO]  Saved new best model at epoch 45
+2025-04-02 17:29:35,670 [INFO] Started epoch 46
+2025-04-02 17:55:29,149 [INFO] [Epoch 46] ArcFace Loss: 0.0356
+2025-04-02 17:55:29,152 [INFO]  Epoch time: 1553.48 sec
+2025-04-02 17:55:29,287 [INFO]  Saved new best model at epoch 46
+2025-04-02 17:55:29,290 [INFO] Started epoch 47
