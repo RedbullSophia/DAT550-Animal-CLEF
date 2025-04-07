@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
-#SBATCH --time=00:15:00
+#SBATCH --time=2:15:00
 #SBATCH --job-name=train4
 #SBATCH --output=train4.out
 
@@ -12,14 +12,21 @@ python --version
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# Run your Python script with args
+# Run your Python script with args - ResNet50 with smaller batch size and different embedding config
 python -u ../model/arg_run.py \
-  --backbone resnet18 \
-  --batch_size 512 \
-  --num_epochs 3 \
-  --lr 0.0005 \
-  --m 2 \
+  --remote \
+  --backbone resnet50 \
+  --batch_size 32 \
+  --num_epochs 30 \
+  --lr 0.0003 \
+  --m 4 \
   --resize 160 \
-  --n 2000 \
-  --weight_decay 1e-4 \
-  --scheduler plateau
+  --n 3000 \
+  --weight_decay 3e-4 \
+  --dropout 0.4 \
+  --scheduler cosine \
+  --patience 12 \
+  --augmentation \
+  --embedding_dim 256 \
+  --margin 0.3 \
+  --scale 32.0

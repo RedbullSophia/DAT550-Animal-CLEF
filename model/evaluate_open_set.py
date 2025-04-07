@@ -421,16 +421,16 @@ if __name__ == "__main__":
     gallery_dataset = OpenSetWildlifeDataset(
         root_data=DATA_ROOT,
         split="train",
-        transform=transform,
-        n=20000  # Increased gallery size
+        transform=transform
+        # Remove n parameter to use all available training images
     )
     
     # For query, use test set (mix of known and unknown identities)
     query_dataset = OpenSetWildlifeDataset(
         root_data=DATA_ROOT,
         split="test",
-        transform=transform,
-        n=20000  # Increased query size
+        transform=transform
+        # Remove n parameter to use all available test images
     )
     
     print(f"Gallery size: {len(gallery_dataset)}, Query size: {len(query_dataset)}")

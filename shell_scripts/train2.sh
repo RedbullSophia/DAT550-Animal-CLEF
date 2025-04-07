@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
-#SBATCH --time=20:15:00
+#SBATCH --time=35:15:00
 #SBATCH --job-name=train2
 #SBATCH --output=train2.out
 
@@ -17,7 +17,7 @@ python -u ../model/arg_run.py \
   --remote \
   --backbone resnet50 \
   --batch_size 64 \
-  --num_epochs 30 \
+  --num_epochs 40 \
   --lr 0.001 \
   --m 8 \
   --resize 160 \

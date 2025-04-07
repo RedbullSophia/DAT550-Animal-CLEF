@@ -15,7 +15,6 @@ __pycache__/
 *.log.*.*.*.*.*
 *.pth
 
-model_data/
 
 # Distribution / packaging
 .Python

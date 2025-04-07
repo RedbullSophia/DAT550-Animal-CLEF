@@ -19,6 +19,8 @@ import matplotlib
 matplotlib.use('Agg')  # Set the backend to Agg for headless environment
 import matplotlib.pyplot as plt
 import json
+import subprocess
+import sys  # Add this import
 
 # Add new imports for data augmentation
 from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter, RandomResizedCrop
@@ -149,6 +151,33 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         if patience > 0 and no_improve_count >= patience:
             logging.info(f"Early stopping triggered after {epoch+1} epochs")
             break
+
+    # After training completes, run evaluation
+    logging.info("Training completed. Starting evaluation...")
+    
+    # Construct evaluation command using the same Python interpreter
+    eval_cmd = [
+        sys.executable,  # Use the same Python interpreter
+        "model/evaluate_open_set.py",
+        "--model_path", os.path.join(save_path, "trained_model.pth"),
+        "--backbone", args.backbone,
+        "--batch_size", str(args.batch_size),
+        "--resize", str(args.resize),
+        "--output_dir", os.path.join(save_path, "open_set_evaluation")
+    ]
+    
+    # Add remote flag if needed
+    if args.remote:
+        eval_cmd.append("--remote")
+    
+    # Run evaluation
+    try:
+        subprocess.run(eval_cmd, check=True)
+        logging.info("Evaluation completed successfully")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Evaluation failed: {e}")
+        # Print the command that failed for debugging
+        logging.error(f"Failed command: {' '.join(eval_cmd)}")
 
 # ======================
 # MAIN ENTRY POINT
