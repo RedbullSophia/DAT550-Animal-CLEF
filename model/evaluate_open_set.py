@@ -19,6 +19,32 @@ from collections import defaultdict
 from metadata_dataset import WildlifeMetadataDataset
 from ReIDNet import ReIDNet
 
+# Define OpenSetWildlifeDataset class at module level
+class OpenSetWildlifeDataset(WildlifeMetadataDataset):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.original_identities = []
+        
+        # Reload metadata to get original identities
+        from wildlife_datasets.datasets import WildlifeReID10k
+        dataset = WildlifeReID10k(self.root_data, check_files=False)
+        metadata = dataset.metadata
+        
+        # Apply the same filters as in the parent class
+        if kwargs.get('split'):
+            metadata = metadata[metadata["split"] == kwargs.get('split')]
+        if kwargs.get('species_filter'):
+            metadata = metadata[metadata["species"] == kwargs.get('species_filter')]
+        if kwargs.get('dataset_filter'):
+            metadata = metadata[metadata["dataset"] == kwargs.get('dataset_filter')]
+        
+        if kwargs.get('n', 100000) < 100000:
+            metadata = metadata.sample(n=kwargs.get('n'), random_state=42)
+        
+        # Store original identities in the same order as image_paths
+        for _, row in metadata.iterrows():
+            self.original_identities.append(row["identity"])
+
 # Import evaluation metrics
 def BAKS(y_true, y_pred, identity_test_only):
     """Computes BAKS (balanced accuracy on known samples)."""
@@ -390,39 +416,13 @@ if __name__ == "__main__":
         transforms.ToTensor(),
     ])
     
-    # Modify the WildlifeMetadataDataset class to store original identities
-    class OpenSetWildlifeDataset(WildlifeMetadataDataset):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.original_identities = []
-            
-            # Reload metadata to get original identities
-            from wildlife_datasets.datasets import WildlifeReID10k
-            dataset = WildlifeReID10k(self.root_data, check_files=False)
-            metadata = dataset.metadata
-            
-            # Apply the same filters as in the parent class
-            if kwargs.get('split'):
-                metadata = metadata[metadata["split"] == kwargs.get('split')]
-            if kwargs.get('species_filter'):
-                metadata = metadata[metadata["species"] == kwargs.get('species_filter')]
-            if kwargs.get('dataset_filter'):
-                metadata = metadata[metadata["dataset"] == kwargs.get('dataset_filter')]
-            
-            if kwargs.get('n', 100000) < 100000:
-                metadata = metadata.sample(n=kwargs.get('n'), random_state=42)
-            
-            # Store original identities in the same order as image_paths
-            for _, row in metadata.iterrows():
-                self.original_identities.append(row["identity"])
-    
     # Load datasets
     # For gallery, use training set (known identities)
     gallery_dataset = OpenSetWildlifeDataset(
         root_data=DATA_ROOT,
         split="train",
         transform=transform,
-        n=5000  # Adjust as needed
+        n=20000  # Increased gallery size
     )
     
     # For query, use test set (mix of known and unknown identities)
@@ -430,7 +430,7 @@ if __name__ == "__main__":
         root_data=DATA_ROOT,
         split="test",
         transform=transform,
-        n=5000  # Adjust as needed
+        n=20000  # Increased query size
     )
     
     print(f"Gallery size: {len(gallery_dataset)}, Query size: {len(query_dataset)}")

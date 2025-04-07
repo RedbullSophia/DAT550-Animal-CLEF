@@ -15,9 +15,30 @@ from ReIDNet import ReIDNet
 import logging
 import time
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR
+import matplotlib
+matplotlib.use('Agg')  # Set the backend to Agg for headless environment
+import matplotlib.pyplot as plt
+import json
 
 # Add new imports for data augmentation
 from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter, RandomResizedCrop
+
+# ======================
+# PLOTTING FUNCTION
+# ======================
+def update_plot(metrics, save_path):
+    """Update and save the training plot"""
+    plt.figure(figsize=(10, 6))
+    plt.plot(metrics['epochs'], metrics['train_loss'], label='Training Loss', marker='o')
+    plt.plot(metrics['epochs'], metrics['val_loss'], label='Validation Loss', marker='x')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title('Training and Validation Loss')
+    plt.grid(True, linestyle='--', alpha=0.7)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_path, 'training_plot.png'))
+    plt.close()
 
 # ======================
 # LOGGING SETUP
@@ -103,9 +124,11 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         metrics['lr'].append(current_lr)
         
         # Save metrics to file
-        import json
         with open(os.path.join(save_path, "training_metrics.json"), 'w') as f:
             json.dump(metrics, f)
+            
+        # Update plot after each epoch
+        update_plot(metrics, save_path)
 
         # Step the scheduler using validation loss if provided
         if scheduler is not None:
