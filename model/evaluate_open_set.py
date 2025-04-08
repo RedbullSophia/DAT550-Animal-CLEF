@@ -234,32 +234,32 @@ def visualize_tsne_with_known_unknown(embeddings, original_ids, identity_test_on
     plt.close()
     
     # Also create a plot colored by individual identity (limited to top 20 most frequent)
-    plt.figure(figsize=(12, 10))
+    # plt.figure(figsize=(12, 10))
     
-    # Count occurrences of each identity
-    id_counts = {}
-    for id in ids_subset:
-        if id in id_counts:
-            id_counts[id] += 1
-        else:
-            id_counts[id] = 1
+    # # Count occurrences of each identity
+    # id_counts = {}
+    # for id in ids_subset:
+    #     if id in id_counts:
+    #         id_counts[id] += 1
+    #     else:
+    #         id_counts[id] = 1
     
-    # Get top 20 most frequent identities
-    top_ids = sorted(id_counts.keys(), key=lambda x: id_counts[x], reverse=True)[:20]
+    # # Get top 20 most frequent identities
+    # top_ids = sorted(id_counts.keys(), key=lambda x: id_counts[x], reverse=True)[:20]
     
-    # Create a colormap
-    cmap = plt.cm.get_cmap('tab20', len(top_ids))
+    # # Create a colormap
+    # cmap = plt.cm.get_cmap('tab20', len(top_ids))
     
-    # Plot points for each of the top identities
-    for i, id in enumerate(top_ids):
-        mask = np.array([x == id for x in ids_subset])
-        plt.scatter(embeddings_2d[mask, 0], embeddings_2d[mask, 1], 
-                   c=[cmap(i)], label=f'ID: {id}', alpha=0.7, s=50)
+    # # Plot points for each of the top identities
+    # for i, id in enumerate(top_ids):
+    #     mask = np.array([x == id for x in ids_subset])
+    #     plt.scatter(embeddings_2d[mask, 0], embeddings_2d[mask, 1], 
+    #                c=[cmap(i)], label=f'ID: {id}', alpha=0.7, s=50)
     
-    plt.title('t-SNE Visualization of Embeddings (Top 20 Identities)')
-    plt.legend(loc='best', ncol=2, fontsize='small', bbox_to_anchor=(1.05, 1))
-    plt.savefig(os.path.join(save_path, 'tsne_top_identities.png'), dpi=200)
-    plt.close()
+    # plt.title('t-SNE Visualization of Embeddings (Top 20 Identities)')
+    # plt.legend(loc='best', ncol=2, fontsize='small', bbox_to_anchor=(1.05, 1))
+    # plt.savefig(os.path.join(save_path, 'tsne_top_identities.png'), dpi=200)
+    # plt.close()
 
 def visualize_distance_distributions(distances, query_original_ids, gallery_original_ids, identity_test_only, save_path):
     """Visualize the distribution of distances for known and unknown individuals"""
@@ -440,7 +440,7 @@ if __name__ == "__main__":
         gallery_dataset,
         batch_size=args.batch_size,
         shuffle=False,
-        num_workers=4,
+        num_workers=0,
         pin_memory=True
     )
     
@@ -448,7 +448,7 @@ if __name__ == "__main__":
         query_dataset,
         batch_size=args.batch_size,
         shuffle=False,
-        num_workers=4,
+        num_workers=0,
         pin_memory=True
     )
     

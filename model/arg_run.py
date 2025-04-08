@@ -158,7 +158,7 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     # Construct evaluation command using the same Python interpreter
     eval_cmd = [
         sys.executable,  # Use the same Python interpreter
-        "model/evaluate_open_set.py",
+        "/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py",
         "--model_path", os.path.join(save_path, "trained_model.pth"),
         "--backbone", args.backbone,
         "--batch_size", str(args.batch_size),

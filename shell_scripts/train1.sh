@@ -12,21 +12,22 @@ python --version
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# Run your Python script with args - ResNet50 with improved embedding separation
+
 python -u ../model/arg_run.py \
   --remote \
-  --backbone resnet50 \
-  --batch_size 64 \
-  --num_epochs 40 \
-  --lr 0.0005 \
-  --m 6 \
-  --resize 160 \
+  --batch_size 32 \
+  --num_epochs 30 \
+  --lr 0.0003 \
+  --m 4 \
+  --resize 224 \
   --n 140000 \
-  --weight_decay 5e-4 \
-  --dropout 0.5 \
-  --scheduler cosine \
-  --patience 10 \
+  --backbone efficientnet_v2_s \
+  --val_split 0.2 \
+  --weight_decay 1e-4 \
+  --dropout 0.4 \
+  --scheduler plateau \
+  --patience 5 \
   --augmentation \
-  --embedding_dim 512 \
-  --margin 0.4 \
-  --scale 64.0
+  --embedding_dim 256 \
+  --margin 0.2 \
+  --scale 64.0 

@@ -12,21 +12,22 @@ python --version
 
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
-# Run your Python script with args - ResNet50 with higher learning rate and aggressive regularization
+ 
 python -u ../model/arg_run.py \
   --remote \
-  --backbone resnet50 \
   --batch_size 64 \
-  --num_epochs 40 \
+  --num_epochs 30 \
   --lr 0.001 \
   --m 8 \
-  --resize 160 \
+  --resize 224 \
   --n 140000 \
+  --backbone efficientnet_v2_s \
+  --val_split 0.2 \
   --weight_decay 1e-3 \
   --dropout 0.6 \
-  --scheduler cosine \
-  --patience 8 \
+  --scheduler plateau \
+  --patience 5 \
   --augmentation \
-  --embedding_dim 384 \
-  --margin 0.5 \
-  --scale 48.0
+  --embedding_dim 512 \
+  --margin 0.3 \
+  --scale 64.0 
