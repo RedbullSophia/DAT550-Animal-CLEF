@@ -161,6 +161,7 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         "/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py",
         "--model_path", os.path.join(save_path, "trained_model.pth"),
         "--backbone", args.backbone,
+        "--embedding_dim", str(args.embedding_dim),
         "--batch_size", str(args.batch_size),
         "--resize", str(args.resize),
         "--output_dir", os.path.join(save_path, "open_set_evaluation")

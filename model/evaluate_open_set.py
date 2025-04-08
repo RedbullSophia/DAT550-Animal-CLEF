@@ -286,10 +286,10 @@ def visualize_distance_distributions(distances, query_original_ids, gallery_orig
     plt.savefig(os.path.join(save_path, 'distance_distributions.png'), dpi=200)
     plt.close()
 
-def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_path, backbone_name, threshold=None):
+def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_path, backbone_name, embedding_dim, threshold=None):
     """Evaluate ReID model for open-set recognition"""
     # Load model
-    model = ReIDNet(backbone_name=backbone_name, embedding_dim=512, device=device)
+    model = ReIDNet(backbone_name=backbone_name, embedding_dim=embedding_dim, device=device)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model = model.to(device)
     
@@ -387,6 +387,7 @@ if __name__ == "__main__":
     parser.add_argument("--remote", action="store_true", help="Use remote paths for data and model saving")
     parser.add_argument("--model_path", type=str, required=True, help="Path to the trained model")
     parser.add_argument("--backbone", type=str, default="resnet18", help="Backbone model name")
+    parser.add_argument("--embedding_dim", type=int, default=512, help="Embedding dimension")
     parser.add_argument("--batch_size", type=int, default=64, help="Batch size for evaluation")
     parser.add_argument("--resize", type=int, default=224, help="Image resize size")
     parser.add_argument("--threshold", type=float, default=None, help="Distance threshold for unknown detection")
@@ -454,4 +455,4 @@ if __name__ == "__main__":
     
     # Evaluate
     evaluate_open_set(args.model_path, gallery_loader, query_loader, device, 
-                     args.output_dir, args.backbone, args.threshold) 
+                     args.output_dir, args.backbone, args.embedding_dim, args.threshold) 
