@@ -4,7 +4,7 @@ from PIL import Image
 from torch.utils.data import Dataset
 
 class WildlifeMetadataDataset(Dataset):
-    def __init__(self, root_data, transform=None, split="train", species_filter=None, dataset_filter=None, n=5000):
+    def __init__(self, root_data, transform=None, split="train", species_filter=None, dataset_filter=None, n=999999):
         """
         Args:
             root_data (str): Root path to dataset folder (should point to `versions/6`)

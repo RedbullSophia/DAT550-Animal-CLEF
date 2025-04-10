@@ -21,7 +21,7 @@ python -u ../model/arg_run.py \
   --m 4 \
   --resize 288 \
   --n 140000 \
-  --backbone dm_nfnet_f5 \
+  --backbone eca_nfnet_l1 \
   --val_split 0.2 \
   --weight_decay 5e-5 \
   --dropout 0.3 \
@@ -29,5 +29,6 @@ python -u ../model/arg_run.py \
   --patience 10 \
   --augmentation \
   --embedding_dim 512 \
-  --margin 0.3 \
-  --scale 64.0
+  --margin 0.2 \
+  --scale 80.0
+

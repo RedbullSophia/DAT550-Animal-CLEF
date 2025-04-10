@@ -21,7 +21,7 @@ python -u ../model/arg_run.py \
   --m 4 \
   --resize 288 \
   --n 140000 \
-  --backbone eca_nfnet_l1 \
+  --backbone resnet101_ibn_a \
   --val_split 0.2 \
   --weight_decay 5e-5 \
   --dropout 0.3 \
@@ -31,3 +31,4 @@ python -u ../model/arg_run.py \
   --embedding_dim 512 \
   --margin 0.3 \
   --scale 64.0
+
