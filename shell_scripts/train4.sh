@@ -15,13 +15,13 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 # Run your Python script with args - ResNet50 with smaller batch size and different embedding config
 python -u ../model/arg_run.py \
   --remote \
-  --backbone resnet50 \
+  --backbone resnet18 \
   --batch_size 32 \
-  --num_epochs 30 \
+  --num_epochs 1 \
   --lr 0.0003 \
   --m 4 \
   --resize 160 \
-  --n 3000 \
+  --n 500 \
   --weight_decay 3e-4 \
   --dropout 0.4 \
   --scheduler cosine \
