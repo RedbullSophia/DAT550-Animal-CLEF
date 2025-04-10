@@ -1,0 +1,151 @@
+2025-04-08 17:20:07,244 [INFO] === TRAINING CONFIGURATION ===
+2025-04-08 17:20:07,246 [INFO] Backbone: eca_nfnet_l1
+2025-04-08 17:20:07,247 [INFO] Batch size: 32
+2025-04-08 17:20:07,249 [INFO] Epochs: 30
+2025-04-08 17:20:07,250 [INFO] Learning rate: 0.0001
+2025-04-08 17:20:07,252 [INFO] Images per class (M): 4
+2025-04-08 17:20:07,253 [INFO] Image size: 288x288
+2025-04-08 17:20:07,255 [INFO] Dataset size (n): 140000
+2025-04-08 17:20:07,256 [INFO] Validation split: 0.2
+2025-04-08 17:20:07,257 [INFO] Weight decay: 5e-05
+2025-04-08 17:20:07,259 [INFO] Dropout rate: 0.3
+2025-04-08 17:20:07,260 [INFO] Scheduler: cosine
+2025-04-08 17:20:07,262 [INFO] Early stopping patience: 10
+2025-04-08 17:20:07,264 [INFO] Data augmentation: True
+2025-04-08 17:20:07,265 [INFO] Embedding dimension: 512
+2025-04-08 17:20:07,267 [INFO] ArcFace margin: 0.3
+2025-04-08 17:20:07,268 [INFO] ArcFace scale: 64.0
+2025-04-08 17:20:07,270 [INFO] =============================
+2025-04-08 17:20:07,370 [INFO] Using device: cuda
+2025-04-08 17:20:07,372 [INFO] Using remote paths
+2025-04-08 17:20:07,373 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-08 17:20:07,374 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_bz32_e30_lr0.0001_m4_r288_n140000/
+2025-04-08 17:20:07,442 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-08 17:20:07,445 [INFO] Using data augmentation
+2025-04-08 17:20:07,447 [INFO] Loading dataset...
+2025-04-08 17:20:08,624 [INFO] PyTorch version 2.6.0 available.
+2025-04-08 17:20:16,377 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-08 17:20:16,975 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-08 17:20:17,175 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-08 17:20:18,355 [INFO] Using CosineAnnealingLR scheduler
+2025-04-08 17:20:18,356 [INFO] Started epoch 1
+2025-04-08 18:18:07,067 [INFO] [Epoch 1] Train Loss: 11.9076, Val Loss: 11.4041, LR: 0.000100
+2025-04-08 18:18:07,069 [INFO]  Epoch time: 3468.71 sec
+2025-04-08 18:18:09,023 [INFO]  Saved new best model at epoch 1
+2025-04-08 18:18:09,025 [INFO] Started epoch 2
+2025-04-08 19:14:47,019 [INFO] [Epoch 2] Train Loss: 11.3433, Val Loss: 10.2526, LR: 0.000100
+2025-04-08 19:14:47,020 [INFO]  Epoch time: 3398.00 sec
+2025-04-08 19:14:48,689 [INFO]  Saved new best model at epoch 2
+2025-04-08 19:14:48,690 [INFO] Started epoch 3
+2025-04-08 20:11:28,905 [INFO] [Epoch 3] Train Loss: 9.4783, Val Loss: 7.4768, LR: 0.000099
+2025-04-08 20:11:28,908 [INFO]  Epoch time: 3400.22 sec
+2025-04-08 20:11:30,728 [INFO]  Saved new best model at epoch 3
+2025-04-08 20:11:30,730 [INFO] Started epoch 4
+2025-04-08 21:09:39,226 [INFO] [Epoch 4] Train Loss: 5.8510, Val Loss: 6.0435, LR: 0.000098
+2025-04-08 21:09:39,229 [INFO]  Epoch time: 3488.50 sec
+2025-04-08 21:09:40,830 [INFO]  Saved new best model at epoch 4
+2025-04-08 21:09:40,831 [INFO] Started epoch 5
+2025-04-08 22:06:16,033 [INFO] [Epoch 5] Train Loss: 3.1499, Val Loss: 5.3107, LR: 0.000096
+2025-04-08 22:06:16,036 [INFO]  Epoch time: 3395.20 sec
+2025-04-08 22:06:17,808 [INFO]  Saved new best model at epoch 5
+2025-04-08 22:06:17,810 [INFO] Started epoch 6
+2025-04-08 23:01:12,528 [INFO] [Epoch 6] Train Loss: 1.9013, Val Loss: 4.8490, LR: 0.000093
+2025-04-08 23:01:12,529 [INFO]  Epoch time: 3294.72 sec
+2025-04-08 23:01:13,976 [INFO]  Saved new best model at epoch 6
+2025-04-08 23:01:13,978 [INFO] Started epoch 7
+2025-04-08 23:58:05,455 [INFO] [Epoch 7] Train Loss: 1.2672, Val Loss: 4.4281, LR: 0.000091
+2025-04-08 23:58:05,457 [INFO]  Epoch time: 3411.48 sec
+2025-04-08 23:58:06,884 [INFO]  Saved new best model at epoch 7
+2025-04-08 23:58:06,886 [INFO] Started epoch 8
+2025-04-09 00:54:04,792 [INFO] [Epoch 8] Train Loss: 0.9102, Val Loss: 4.1388, LR: 0.000087
+2025-04-09 00:54:04,794 [INFO]  Epoch time: 3357.91 sec
+2025-04-09 00:54:06,029 [INFO]  Saved new best model at epoch 8
+2025-04-09 00:54:06,031 [INFO] Started epoch 9
+2025-04-09 01:50:13,031 [INFO] [Epoch 9] Train Loss: 0.6844, Val Loss: 3.9338, LR: 0.000084
+2025-04-09 01:50:13,033 [INFO]  Epoch time: 3367.00 sec
+2025-04-09 01:50:14,370 [INFO]  Saved new best model at epoch 9
+2025-04-09 01:50:14,372 [INFO] Started epoch 10
+2025-04-09 02:46:46,968 [INFO] [Epoch 10] Train Loss: 0.5405, Val Loss: 3.8540, LR: 0.000080
+2025-04-09 02:46:46,970 [INFO]  Epoch time: 3392.60 sec
+2025-04-09 02:46:48,502 [INFO]  Saved new best model at epoch 10
+2025-04-09 02:46:48,505 [INFO] Started epoch 11
+2025-04-09 03:43:13,608 [INFO] [Epoch 11] Train Loss: 0.4298, Val Loss: 3.6729, LR: 0.000075
+2025-04-09 03:43:13,610 [INFO]  Epoch time: 3385.10 sec
+2025-04-09 03:43:14,776 [INFO]  Saved new best model at epoch 11
+2025-04-09 03:43:14,777 [INFO] Started epoch 12
+2025-04-09 04:39:08,252 [INFO] [Epoch 12] Train Loss: 0.3538, Val Loss: 3.6088, LR: 0.000071
+2025-04-09 04:39:08,253 [INFO]  Epoch time: 3353.48 sec
+2025-04-09 04:39:09,395 [INFO]  Saved new best model at epoch 12
+2025-04-09 04:39:09,397 [INFO] Started epoch 13
+2025-04-09 05:35:50,292 [INFO] [Epoch 13] Train Loss: 0.2824, Val Loss: 3.5443, LR: 0.000066
+2025-04-09 05:35:50,297 [INFO]  Epoch time: 3400.90 sec
+2025-04-09 05:35:51,968 [INFO]  Saved new best model at epoch 13
+2025-04-09 05:35:51,970 [INFO] Started epoch 14
+2025-04-09 06:32:01,905 [INFO] [Epoch 14] Train Loss: 0.2310, Val Loss: 3.4012, LR: 0.000061
+2025-04-09 06:32:01,908 [INFO]  Epoch time: 3369.94 sec
+2025-04-09 06:32:03,455 [INFO]  Saved new best model at epoch 14
+2025-04-09 06:32:03,457 [INFO] Started epoch 15
+2025-04-09 07:28:19,722 [INFO] [Epoch 15] Train Loss: 0.1848, Val Loss: 3.3772, LR: 0.000056
+2025-04-09 07:28:19,723 [INFO]  Epoch time: 3376.27 sec
+2025-04-09 07:28:20,892 [INFO]  Saved new best model at epoch 15
+2025-04-09 07:28:20,894 [INFO] Started epoch 16
+2025-04-09 08:24:00,264 [INFO] [Epoch 16] Train Loss: 0.1576, Val Loss: 3.2513, LR: 0.000051
+2025-04-09 08:24:00,266 [INFO]  Epoch time: 3339.37 sec
+2025-04-09 08:24:01,748 [INFO]  Saved new best model at epoch 16
+2025-04-09 08:24:01,750 [INFO] Started epoch 17
+2025-04-09 09:19:37,773 [INFO] [Epoch 17] Train Loss: 0.1323, Val Loss: 3.2186, LR: 0.000045
+2025-04-09 09:19:37,775 [INFO]  Epoch time: 3336.03 sec
+2025-04-09 09:19:39,398 [INFO]  Saved new best model at epoch 17
+2025-04-09 09:19:39,400 [INFO] Started epoch 18
+2025-04-09 10:16:57,902 [INFO] [Epoch 18] Train Loss: 0.1058, Val Loss: 3.1648, LR: 0.000040
+2025-04-09 10:16:57,904 [INFO]  Epoch time: 3438.50 sec
+2025-04-09 10:16:59,630 [INFO]  Saved new best model at epoch 18
+2025-04-09 10:16:59,632 [INFO] Started epoch 19
+2025-04-09 11:13:42,360 [INFO] [Epoch 19] Train Loss: 0.0879, Val Loss: 3.1166, LR: 0.000035
+2025-04-09 11:13:42,362 [INFO]  Epoch time: 3402.73 sec
+2025-04-09 11:13:44,133 [INFO]  Saved new best model at epoch 19
+2025-04-09 11:13:44,135 [INFO] Started epoch 20
+2025-04-09 12:10:50,628 [INFO] [Epoch 20] Train Loss: 0.0706, Val Loss: 3.0438, LR: 0.000030
+2025-04-09 12:10:50,631 [INFO]  Epoch time: 3426.50 sec
+2025-04-09 12:10:52,313 [INFO]  Saved new best model at epoch 20
+2025-04-09 12:10:52,315 [INFO] Started epoch 21
+2025-04-09 13:08:54,433 [INFO] [Epoch 21] Train Loss: 0.0588, Val Loss: 3.0054, LR: 0.000026
+2025-04-09 13:08:54,436 [INFO]  Epoch time: 3482.12 sec
+2025-04-09 13:08:56,210 [INFO]  Saved new best model at epoch 21
+2025-04-09 13:08:56,213 [INFO] Started epoch 22
+2025-04-09 14:06:22,587 [INFO] [Epoch 22] Train Loss: 0.0475, Val Loss: 2.9725, LR: 0.000021
+2025-04-09 14:06:22,589 [INFO]  Epoch time: 3446.38 sec
+2025-04-09 14:06:23,969 [INFO]  Saved new best model at epoch 22
+2025-04-09 14:06:23,970 [INFO] Started epoch 23
+2025-04-09 15:04:37,773 [INFO] [Epoch 23] Train Loss: 0.0384, Val Loss: 2.9346, LR: 0.000017
+2025-04-09 15:04:37,775 [INFO]  Epoch time: 3493.80 sec
+2025-04-09 15:04:39,367 [INFO]  Saved new best model at epoch 23
+2025-04-09 15:04:39,370 [INFO] Started epoch 24
+2025-04-09 16:02:21,500 [INFO] [Epoch 24] Train Loss: 0.0319, Val Loss: 2.8944, LR: 0.000014
+2025-04-09 16:02:21,502 [INFO]  Epoch time: 3462.13 sec
+2025-04-09 16:02:22,849 [INFO]  Saved new best model at epoch 24
+2025-04-09 16:02:22,851 [INFO] Started epoch 25
+2025-04-09 16:59:39,377 [INFO] [Epoch 25] Train Loss: 0.0268, Val Loss: 2.8593, LR: 0.000010
+2025-04-09 16:59:39,379 [INFO]  Epoch time: 3436.53 sec
+2025-04-09 16:59:40,933 [INFO]  Saved new best model at epoch 25
+2025-04-09 16:59:40,935 [INFO] Started epoch 26
+2025-04-09 17:56:20,105 [INFO] [Epoch 26] Train Loss: 0.0236, Val Loss: 2.8314, LR: 0.000008
+2025-04-09 17:56:20,106 [INFO]  Epoch time: 3399.17 sec
+2025-04-09 17:56:21,716 [INFO]  Saved new best model at epoch 26
+2025-04-09 17:56:21,718 [INFO] Started epoch 27
+2025-04-09 18:53:56,002 [INFO] [Epoch 27] Train Loss: 0.0200, Val Loss: 2.8233, LR: 0.000005
+2025-04-09 18:53:56,003 [INFO]  Epoch time: 3454.29 sec
+2025-04-09 18:53:57,558 [INFO]  Saved new best model at epoch 27
+2025-04-09 18:53:57,560 [INFO] Started epoch 28
+2025-04-09 19:51:13,690 [INFO] [Epoch 28] Train Loss: 0.0169, Val Loss: 2.8072, LR: 0.000003
+2025-04-09 19:51:13,693 [INFO]  Epoch time: 3436.13 sec
+2025-04-09 19:51:15,224 [INFO]  Saved new best model at epoch 28
+2025-04-09 19:51:15,226 [INFO] Started epoch 29
+2025-04-09 20:48:42,402 [INFO] [Epoch 29] Train Loss: 0.0162, Val Loss: 2.8097, LR: 0.000002
+2025-04-09 20:48:42,404 [INFO]  Epoch time: 3447.18 sec
+2025-04-09 20:48:43,330 [INFO] Started epoch 30
+2025-04-09 21:46:06,008 [INFO] [Epoch 30] Train Loss: 0.0161, Val Loss: 2.7966, LR: 0.000001
+2025-04-09 21:46:06,044 [INFO]  Epoch time: 3442.71 sec
+2025-04-09 21:46:07,631 [INFO]  Saved new best model at epoch 30
+2025-04-09 21:46:07,633 [INFO] Training completed. Starting evaluation...
+2025-04-09 21:50:47,535 [INFO] Evaluation completed successfully

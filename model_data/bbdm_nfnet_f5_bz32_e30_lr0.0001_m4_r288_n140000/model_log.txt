@@ -1,0 +1,64 @@
+2025-04-08 17:20:03,570 [INFO] === TRAINING CONFIGURATION ===
+2025-04-08 17:20:03,572 [INFO] Backbone: dm_nfnet_f5
+2025-04-08 17:20:03,574 [INFO] Batch size: 32
+2025-04-08 17:20:03,575 [INFO] Epochs: 30
+2025-04-08 17:20:03,577 [INFO] Learning rate: 0.0001
+2025-04-08 17:20:03,578 [INFO] Images per class (M): 4
+2025-04-08 17:20:03,580 [INFO] Image size: 288x288
+2025-04-08 17:20:03,582 [INFO] Dataset size (n): 140000
+2025-04-08 17:20:03,583 [INFO] Validation split: 0.2
+2025-04-08 17:20:03,584 [INFO] Weight decay: 5e-05
+2025-04-08 17:20:03,585 [INFO] Dropout rate: 0.3
+2025-04-08 17:20:03,587 [INFO] Scheduler: cosine
+2025-04-08 17:20:03,588 [INFO] Early stopping patience: 10
+2025-04-08 17:20:03,589 [INFO] Data augmentation: True
+2025-04-08 17:20:03,591 [INFO] Embedding dimension: 512
+2025-04-08 17:20:03,593 [INFO] ArcFace margin: 0.3
+2025-04-08 17:20:03,594 [INFO] ArcFace scale: 64.0
+2025-04-08 17:20:03,595 [INFO] =============================
+2025-04-08 17:20:03,865 [INFO] Using device: cuda
+2025-04-08 17:20:03,867 [INFO] Using remote paths
+2025-04-08 17:20:03,869 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-08 17:20:03,870 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbdm_nfnet_f5_bz32_e30_lr0.0001_m4_r288_n140000/
+2025-04-08 17:20:03,947 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-08 17:20:03,949 [INFO] Using data augmentation
+2025-04-08 17:20:03,951 [INFO] Loading dataset...
+2025-04-08 17:20:05,306 [INFO] PyTorch version 2.6.0 available.
+2025-04-08 17:20:13,523 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-08 17:20:19,449 [INFO] Loading pretrained weights from Hugging Face hub (timm/dm_nfnet_f5.dm_in1k)
+2025-04-08 17:20:19,627 [INFO] [timm/dm_nfnet_f5.dm_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-08 17:20:21,874 [INFO] Using CosineAnnealingLR scheduler
+2025-04-08 17:20:21,877 [INFO] Started epoch 1
+2025-04-08 18:32:34,921 [INFO] [Epoch 1] Train Loss: nan, Val Loss: nan, LR: 0.000100
+2025-04-08 18:32:34,923 [INFO]  Epoch time: 4333.05 sec
+2025-04-08 18:32:36,054 [INFO] Started epoch 2
+2025-04-08 19:44:12,138 [INFO] [Epoch 2] Train Loss: nan, Val Loss: nan, LR: 0.000100
+2025-04-08 19:44:12,141 [INFO]  Epoch time: 4296.09 sec
+2025-04-08 19:44:12,829 [INFO] Started epoch 3
+2025-04-08 20:59:10,657 [INFO] [Epoch 3] Train Loss: nan, Val Loss: nan, LR: 0.000099
+2025-04-08 20:59:10,659 [INFO]  Epoch time: 4497.83 sec
+2025-04-08 20:59:11,574 [INFO] Started epoch 4
+2025-04-08 22:11:19,907 [INFO] [Epoch 4] Train Loss: nan, Val Loss: nan, LR: 0.000098
+2025-04-08 22:11:19,910 [INFO]  Epoch time: 4328.34 sec
+2025-04-08 22:11:20,800 [INFO] Started epoch 5
+2025-04-08 23:23:06,844 [INFO] [Epoch 5] Train Loss: nan, Val Loss: nan, LR: 0.000096
+2025-04-08 23:23:06,846 [INFO]  Epoch time: 4306.05 sec
+2025-04-08 23:23:07,741 [INFO] Started epoch 6
+2025-04-09 00:35:21,869 [INFO] [Epoch 6] Train Loss: nan, Val Loss: nan, LR: 0.000093
+2025-04-09 00:35:21,872 [INFO]  Epoch time: 4334.13 sec
+2025-04-09 00:35:22,742 [INFO] Started epoch 7
+2025-04-09 01:47:24,159 [INFO] [Epoch 7] Train Loss: nan, Val Loss: nan, LR: 0.000091
+2025-04-09 01:47:24,161 [INFO]  Epoch time: 4321.42 sec
+2025-04-09 01:47:24,885 [INFO] Started epoch 8
+2025-04-09 02:59:36,279 [INFO] [Epoch 8] Train Loss: nan, Val Loss: nan, LR: 0.000087
+2025-04-09 02:59:36,281 [INFO]  Epoch time: 4331.40 sec
+2025-04-09 02:59:37,000 [INFO] Started epoch 9
+2025-04-09 04:11:44,576 [INFO] [Epoch 9] Train Loss: nan, Val Loss: nan, LR: 0.000084
+2025-04-09 04:11:44,578 [INFO]  Epoch time: 4327.58 sec
+2025-04-09 04:11:45,481 [INFO] Started epoch 10
+2025-04-09 05:23:59,221 [INFO] [Epoch 10] Train Loss: nan, Val Loss: nan, LR: 0.000080
+2025-04-09 05:23:59,223 [INFO]  Epoch time: 4333.74 sec
+2025-04-09 05:23:59,909 [INFO] Early stopping triggered after 10 epochs
+2025-04-09 05:23:59,911 [INFO] Training completed. Starting evaluation...
+2025-04-09 05:25:29,465 [ERROR] Evaluation failed: Command '['/opt/miniconda3-py311/bin/python', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py', '--model_path', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbdm_nfnet_f5_bz32_e30_lr0.0001_m4_r288_n140000/trained_model.pth', '--backbone', 'dm_nfnet_f5', '--embedding_dim', '512', '--batch_size', '32', '--resize', '288', '--output_dir', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbdm_nfnet_f5_bz32_e30_lr0.0001_m4_r288_n140000/open_set_evaluation', '--remote']' returned non-zero exit status 1.
+2025-04-09 05:25:29,467 [ERROR] Failed command: /opt/miniconda3-py311/bin/python /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py --model_path /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbdm_nfnet_f5_bz32_e30_lr0.0001_m4_r288_n140000/trained_model.pth --backbone dm_nfnet_f5 --embedding_dim 512 --batch_size 32 --resize 288 --output_dir /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbdm_nfnet_f5_bz32_e30_lr0.0001_m4_r288_n140000/open_set_evaluation --remote
