@@ -286,7 +286,7 @@ def visualize_distance_distributions(distances, query_original_ids, gallery_orig
     plt.savefig(os.path.join(save_path, 'distance_distributions.png'), dpi=200)
     plt.close()
 
-def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_path, backbone_name, embedding_dim, threshold=None):
+def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_path, backbone_name, embedding_dim, threshold=None, loss_type="arcface"):
     """Evaluate ReID model for open-set recognition"""
     # Load model
     model = ReIDNet(backbone_name=backbone_name, embedding_dim=embedding_dim, device=device)
@@ -374,6 +374,7 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
         "geometric_mean": float(geometric_mean),
         "threshold": float(threshold),
         "backbone": backbone_name,
+        "loss_type": loss_type,
         "evaluation_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
     
@@ -393,6 +394,9 @@ if __name__ == "__main__":
     parser.add_argument("--threshold", type=float, default=None, help="Distance threshold for unknown detection")
     parser.add_argument("--output_dir", type=str, default=None, 
                         help="Directory to save results (defaults to model directory)")
+    parser.add_argument("--loss_type", type=str, default="arcface", 
+                        choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
+                        help="Loss function used for training")
     
     args = parser.parse_args()
     
@@ -455,4 +459,4 @@ if __name__ == "__main__":
     
     # Evaluate
     evaluate_open_set(args.model_path, gallery_loader, query_loader, device, 
-                     args.output_dir, args.backbone, args.embedding_dim, args.threshold) 
+                     args.output_dir, args.backbone, args.embedding_dim, args.threshold, args.loss_type) 

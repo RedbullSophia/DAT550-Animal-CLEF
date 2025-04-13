@@ -6,7 +6,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from torch.cuda.amp import GradScaler, autocast
-from pytorch_metric_learning.losses import ArcFaceLoss
+from pytorch_metric_learning.losses import ArcFaceLoss, TripletMarginLoss, ContrastiveLoss, MultiSimilarityLoss, CosFaceLoss
 from pytorch_metric_learning.samplers import MPerClassSampler
 from datetime import datetime
 from utils import get_max_batch_size
@@ -58,7 +58,8 @@ def setup_logging(save_path):
 # ======================
 # TRAINING FUNCTION
 # ======================
-def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, save_path, num_epochs, scheduler=None, patience=5):
+def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, save_path, num_epochs, 
+          scheduler=None, patience=5, loss_type="arcface"):
     best_loss = float("inf")
     no_improve_count = 0
     
@@ -141,8 +142,9 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
 
         if avg_val_loss < best_loss:
             best_loss = avg_val_loss
-            torch.save(model.state_dict(), os.path.join(save_path, "trained_model.pth"))
-            logging.info(f" Saved new best model at epoch {epoch+1}")
+            model_save_path = os.path.join(save_path, f"trained_model_{loss_type}.pth")
+            torch.save(model.state_dict(), model_save_path)
+            logging.info(f" Saved new best model at epoch {epoch+1} to {model_save_path}")
             no_improve_count = 0
         else:
             no_improve_count += 1
@@ -159,12 +161,13 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     eval_cmd = [
         sys.executable,  # Use the same Python interpreter
         "/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py",
-        "--model_path", os.path.join(save_path, "trained_model.pth"),
+        "--model_path", os.path.join(save_path, f"trained_model_{loss_type}.pth"),
         "--backbone", args.backbone,
         "--embedding_dim", str(args.embedding_dim),
         "--batch_size", str(args.batch_size),
         "--resize", str(args.resize),
-        "--output_dir", os.path.join(save_path, "open_set_evaluation")
+        "--output_dir", os.path.join(save_path, "open_set_evaluation"),
+        "--loss_type", loss_type  # Add loss type to evaluation command
     ]
     
     # Add remote flag if needed
@@ -201,8 +204,11 @@ if __name__ == "__main__":
     parser.add_argument("--patience", type=int, default=5, help="Patience for early stopping (0 to disable)")
     parser.add_argument("--augmentation", action="store_true", help="Use data augmentation")
     parser.add_argument("--embedding_dim", type=int, default=512, help="Embedding dimension")
-    parser.add_argument("--margin", type=float, default=0.5, help="Margin for ArcFace loss")
-    parser.add_argument("--scale", type=float, default=64.0, help="Scale for ArcFace loss")
+    parser.add_argument("--margin", type=float, default=0.5, help="Margin for ArcFace/TripletMargin/Contrastive loss")
+    parser.add_argument("--scale", type=float, default=64.0, help="Scale for ArcFace and CosFace loss")
+    parser.add_argument("--loss_type", type=str, default="arcface", 
+                       choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
+                       help="Loss function to use for training")
 
     args = parser.parse_args()
 
@@ -210,10 +216,10 @@ if __name__ == "__main__":
     
     # Set paths based on remote flag
     if args.remote:
-        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bb{args.backbone}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
+        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bb{args.backbone}_loss{args.loss_type}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
         DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
     else:
-        save_path = f"model_data/bb{args.backbone}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
+        save_path = f"model_data/bb{args.backbone}_loss{args.loss_type}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
         DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
     
     os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists
@@ -236,8 +242,10 @@ if __name__ == "__main__":
     logging.info(f"Early stopping patience: {args.patience}")
     logging.info(f"Data augmentation: {args.augmentation}")
     logging.info(f"Embedding dimension: {args.embedding_dim}")
-    logging.info(f"ArcFace margin: {args.margin}")
-    logging.info(f"ArcFace scale: {args.scale}")
+    logging.info(f"Loss type: {args.loss_type}")
+    logging.info(f"Margin: {args.margin}")
+    if args.loss_type in ["arcface", "cosface"]:
+        logging.info(f"Scale: {args.scale}")
     logging.info("=============================")
 
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -309,7 +317,26 @@ if __name__ == "__main__":
 
     model = ReIDNet(backbone_name=args.backbone, embedding_dim=args.embedding_dim, device=DEVICE, dropout_rate=args.dropout)
     num_classes = len(set(full_dataset.labels))
-    loss_fn = ArcFaceLoss(num_classes=num_classes, embedding_size=args.embedding_dim, margin=args.margin, scale=args.scale)
+    
+    # Initialize the loss function based on the selected loss type
+    if args.loss_type == "arcface":
+        loss_fn = ArcFaceLoss(num_classes=num_classes, embedding_size=args.embedding_dim, 
+                             margin=args.margin, scale=args.scale)
+        logging.info(f"Using ArcFace loss with margin={args.margin}, scale={args.scale}")
+    elif args.loss_type == "cosface":
+        loss_fn = CosFaceLoss(num_classes=num_classes, embedding_size=args.embedding_dim, 
+                             margin=args.margin, scale=args.scale)
+        logging.info(f"Using CosFace loss with margin={args.margin}, scale={args.scale}")
+    elif args.loss_type == "triplet":
+        loss_fn = TripletMarginLoss(margin=args.margin)
+        logging.info(f"Using Triplet Margin loss with margin={args.margin}")
+    elif args.loss_type == "contrastive":
+        loss_fn = ContrastiveLoss(pos_margin=0, neg_margin=args.margin)
+        logging.info(f"Using Contrastive loss with negative margin={args.margin}")
+    elif args.loss_type == "multisimilarity":
+        loss_fn = MultiSimilarityLoss(alpha=2.0, beta=50.0, base=0.5)
+        logging.info(f"Using MultiSimilarity loss")
+    
     optimizer = optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     scaler = GradScaler()
     
@@ -325,4 +352,4 @@ if __name__ == "__main__":
         logging.info("No learning rate scheduler")
 
     train(model, train_loader, val_loader, optimizer, loss_fn, scaler, DEVICE, save_path, args.num_epochs, 
-          scheduler=scheduler, patience=args.patience)
+          scheduler=scheduler, patience=args.patience, loss_type=args.loss_type)
