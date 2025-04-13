@@ -10,3 +10,10 @@ curl -F "file=@model_data.tar.gz" https://0x0.st
 https://0x0.st/82gU.tar.gz
 
 PS C:\Users\trade\Downloads> tar -xzf mods.tar.gz -C C:\modeller
+
+python model/evaluate_open_set.py \
+  --model_path "/c/Hub/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l0_bz32_e30_lr0.0001_m4_r288_n140000/trained_model.pth" \
+  --backbone "eca_nfnet_l0" \
+  --batch_size 32 \
+  --resize 288 \
+  --embedding_dim 512  

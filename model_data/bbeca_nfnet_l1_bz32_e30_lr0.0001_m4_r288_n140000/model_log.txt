@@ -180,6 +180,7 @@
 2025-04-10 22:58:28,243 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
 2025-04-10 22:58:34,388 [INFO] Using CosineAnnealingLR scheduler
 2025-04-10 22:58:34,389 [INFO] Started epoch 1
+<<<<<<< Updated upstream
 2025-04-11 00:14:00,907 [INFO] [Epoch 1] Train Loss: 12.7051, Val Loss: 12.2415, LR: 0.000100
 2025-04-11 00:14:00,908 [INFO]  Epoch time: 4526.52 sec
 2025-04-11 00:14:02,173 [INFO]  Saved new best model at epoch 1
@@ -300,3 +301,5 @@
 2025-04-12 03:47:03,531 [INFO]  Saved new best model at epoch 30
 2025-04-12 03:47:03,533 [INFO] Training completed. Starting evaluation...
 2025-04-12 05:02:19,513 [INFO] Evaluation completed successfully
+=======
+>>>>>>> Stashed changes
