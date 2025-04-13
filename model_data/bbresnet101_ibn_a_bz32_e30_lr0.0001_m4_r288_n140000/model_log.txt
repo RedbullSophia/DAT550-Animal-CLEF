@@ -1,0 +1,27 @@
+2025-04-10 22:58:12,166 [INFO] === TRAINING CONFIGURATION ===
+2025-04-10 22:58:12,168 [INFO] Backbone: resnet101_ibn_a
+2025-04-10 22:58:12,169 [INFO] Batch size: 32
+2025-04-10 22:58:12,170 [INFO] Epochs: 30
+2025-04-10 22:58:12,171 [INFO] Learning rate: 0.0001
+2025-04-10 22:58:12,173 [INFO] Images per class (M): 4
+2025-04-10 22:58:12,174 [INFO] Image size: 288x288
+2025-04-10 22:58:12,175 [INFO] Dataset size (n): 140000
+2025-04-10 22:58:12,176 [INFO] Validation split: 0.2
+2025-04-10 22:58:12,177 [INFO] Weight decay: 5e-05
+2025-04-10 22:58:12,178 [INFO] Dropout rate: 0.3
+2025-04-10 22:58:12,179 [INFO] Scheduler: cosine
+2025-04-10 22:58:12,180 [INFO] Early stopping patience: 10
+2025-04-10 22:58:12,181 [INFO] Data augmentation: True
+2025-04-10 22:58:12,182 [INFO] Embedding dimension: 512
+2025-04-10 22:58:12,183 [INFO] ArcFace margin: 0.3
+2025-04-10 22:58:12,184 [INFO] ArcFace scale: 64.0
+2025-04-10 22:58:12,185 [INFO] =============================
+2025-04-10 22:58:12,660 [INFO] Using device: cuda
+2025-04-10 22:58:12,661 [INFO] Using remote paths
+2025-04-10 22:58:12,663 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-10 22:58:12,664 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbresnet101_ibn_a_bz32_e30_lr0.0001_m4_r288_n140000/
+2025-04-10 22:58:12,723 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-10 22:58:12,725 [INFO] Using data augmentation
+2025-04-10 22:58:12,726 [INFO] Loading dataset...
+2025-04-10 22:58:15,581 [INFO] PyTorch version 2.6.0 available.
+2025-04-10 22:58:27,737 [INFO] Dataset split: 89518 training samples, 22379 validation samples
