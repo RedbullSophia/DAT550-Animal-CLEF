@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
-#SBATCH --time=35:15:00
+#SBATCH --time=47:15:00
 #SBATCH --job-name=train1
 #SBATCH --output=train1.out
 
@@ -16,7 +16,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 python -u ../model/arg_run.py \
   --remote \
   --batch_size 32 \
-  --num_epochs 30 \
+  --num_epochs 35 \
   --lr 0.0001 \
   --m 4 \
   --resize 288 \
@@ -28,7 +28,8 @@ python -u ../model/arg_run.py \
   --scheduler cosine \
   --patience 10 \
   --augmentation \
-  --embedding_dim 512 \
+  --embedding_dim 768 \
   --margin 0.2 \
-  --scale 80.0
+  --scale 80.0 \
+  --loss_type cosface
 
