@@ -28,7 +28,8 @@ python -u ../model/arg_run.py \
   --scheduler cosine \
   --patience 10 \
   --augmentation \
-  --embedding_dim 512 \
+  --embedding_dim 768 \
   --margin 0.2 \
-  --scale 80.0
+  --scale 80.0 \
+  --loss_type cosface
 
