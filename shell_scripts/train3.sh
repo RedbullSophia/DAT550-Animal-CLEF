@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
-#SBATCH --time=35:15:00
+#SBATCH --time=47:15:00
 #SBATCH --job-name=train3
 #SBATCH --output=train3.out
 
