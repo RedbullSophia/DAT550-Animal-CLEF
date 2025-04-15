@@ -1,0 +1,9 @@
+{
+    "BAKS": 0.10523497448461938,
+    "BAUS": 0.5243824446398593,
+    "geometric_mean": 0.23491141560566597,
+    "threshold": 0.5244897959183674,
+    "backbone": "eca_nfnet_l1",
+    "loss_type": "cosface",
+    "evaluation_time": "2025-04-14 17:40:33"
+}

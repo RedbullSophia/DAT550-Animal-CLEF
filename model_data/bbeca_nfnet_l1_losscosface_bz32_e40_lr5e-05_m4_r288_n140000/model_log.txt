@@ -1,0 +1,193 @@
+2025-04-13 08:09:39,467 [INFO] === TRAINING CONFIGURATION ===
+2025-04-13 08:09:39,469 [INFO] Backbone: eca_nfnet_l1
+2025-04-13 08:09:39,470 [INFO] Batch size: 32
+2025-04-13 08:09:39,471 [INFO] Epochs: 40
+2025-04-13 08:09:39,472 [INFO] Learning rate: 5e-05
+2025-04-13 08:09:39,473 [INFO] Images per class (M): 4
+2025-04-13 08:09:39,474 [INFO] Image size: 288x288
+2025-04-13 08:09:39,475 [INFO] Dataset size (n): 140000
+2025-04-13 08:09:39,476 [INFO] Validation split: 0.2
+2025-04-13 08:09:39,477 [INFO] Weight decay: 0.0001
+2025-04-13 08:09:39,478 [INFO] Dropout rate: 0.5
+2025-04-13 08:09:39,479 [INFO] Scheduler: cosine
+2025-04-13 08:09:39,481 [INFO] Early stopping patience: 15
+2025-04-13 08:09:39,482 [INFO] Data augmentation: True
+2025-04-13 08:09:39,482 [INFO] Embedding dimension: 512
+2025-04-13 08:09:39,483 [INFO] Loss type: cosface
+2025-04-13 08:09:39,484 [INFO] Margin: 0.15
+2025-04-13 08:09:39,485 [INFO] Scale: 64.0
+2025-04-13 08:09:39,486 [INFO] =============================
+2025-04-13 08:09:39,933 [INFO] Using device: cuda
+2025-04-13 08:09:39,935 [INFO] Using remote paths
+2025-04-13 08:09:39,937 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-13 08:09:39,938 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/
+2025-04-13 08:09:40,000 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-13 08:09:40,001 [INFO] Using data augmentation
+2025-04-13 08:09:40,002 [INFO] Loading dataset...
+2025-04-13 08:09:41,100 [INFO] PyTorch version 2.6.0 available.
+2025-04-13 08:09:48,747 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-13 08:09:49,342 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-13 08:09:49,796 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-13 08:09:54,500 [INFO] Using CosFace loss with margin=0.15, scale=64.0
+2025-04-13 08:09:54,503 [INFO] Using CosineAnnealingLR scheduler
+2025-04-13 08:09:54,504 [INFO] Started epoch 1
+2025-04-13 09:18:58,293 [INFO] [Epoch 1] Train Loss: 21.2963, Val Loss: 20.6168, LR: 0.000050
+2025-04-13 09:18:58,294 [INFO]  Epoch time: 4143.79 sec
+2025-04-13 09:18:59,658 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 09:18:59,659 [INFO] Started epoch 2
+2025-04-13 10:15:08,674 [INFO] [Epoch 2] Train Loss: 20.3760, Val Loss: 18.6802, LR: 0.000050
+2025-04-13 10:15:08,676 [INFO]  Epoch time: 3369.02 sec
+2025-04-13 10:15:09,782 [INFO]  Saved new best model at epoch 2 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 10:15:09,784 [INFO] Started epoch 3
+2025-04-13 11:10:52,754 [INFO] [Epoch 3] Train Loss: 18.1823, Val Loss: 15.9205, LR: 0.000050
+2025-04-13 11:10:52,755 [INFO]  Epoch time: 3342.97 sec
+2025-04-13 11:10:53,885 [INFO]  Saved new best model at epoch 3 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 11:10:53,887 [INFO] Started epoch 4
+2025-04-13 12:06:09,761 [INFO] [Epoch 4] Train Loss: 14.9308, Val Loss: 14.4933, LR: 0.000049
+2025-04-13 12:06:09,772 [INFO]  Epoch time: 3315.89 sec
+2025-04-13 12:06:10,915 [INFO]  Saved new best model at epoch 4 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 12:06:10,917 [INFO] Started epoch 5
+2025-04-13 13:01:36,271 [INFO] [Epoch 5] Train Loss: 11.6155, Val Loss: 13.6101, LR: 0.000049
+2025-04-13 13:01:36,273 [INFO]  Epoch time: 3325.36 sec
+2025-04-13 13:01:37,319 [INFO]  Saved new best model at epoch 5 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 13:01:37,320 [INFO] Started epoch 6
+2025-04-13 13:57:25,296 [INFO] [Epoch 6] Train Loss: 8.9401, Val Loss: 12.8512, LR: 0.000048
+2025-04-13 13:57:25,298 [INFO]  Epoch time: 3347.98 sec
+2025-04-13 13:57:26,270 [INFO]  Saved new best model at epoch 6 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 13:57:26,271 [INFO] Started epoch 7
+2025-04-13 14:53:20,790 [INFO] [Epoch 7] Train Loss: 7.0388, Val Loss: 12.1465, LR: 0.000047
+2025-04-13 14:53:20,792 [INFO]  Epoch time: 3354.52 sec
+2025-04-13 14:53:21,810 [INFO]  Saved new best model at epoch 7 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 14:53:21,812 [INFO] Started epoch 8
+2025-04-13 15:48:30,760 [INFO] [Epoch 8] Train Loss: 5.6933, Val Loss: 11.5813, LR: 0.000046
+2025-04-13 15:48:30,762 [INFO]  Epoch time: 3308.95 sec
+2025-04-13 15:48:31,852 [INFO]  Saved new best model at epoch 8 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 15:48:31,853 [INFO] Started epoch 9
+2025-04-13 16:44:37,836 [INFO] [Epoch 9] Train Loss: 4.6839, Val Loss: 11.0652, LR: 0.000045
+2025-04-13 16:44:37,837 [INFO]  Epoch time: 3365.98 sec
+2025-04-13 16:44:38,891 [INFO]  Saved new best model at epoch 9 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 16:44:38,892 [INFO] Started epoch 10
+2025-04-13 17:40:24,258 [INFO] [Epoch 10] Train Loss: 3.8949, Val Loss: 10.5446, LR: 0.000044
+2025-04-13 17:40:24,260 [INFO]  Epoch time: 3345.37 sec
+2025-04-13 17:40:25,279 [INFO]  Saved new best model at epoch 10 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 17:40:25,281 [INFO] Started epoch 11
+2025-04-13 18:35:51,377 [INFO] [Epoch 11] Train Loss: 3.2866, Val Loss: 10.1305, LR: 0.000043
+2025-04-13 18:35:51,378 [INFO]  Epoch time: 3326.10 sec
+2025-04-13 18:35:52,429 [INFO]  Saved new best model at epoch 11 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 18:35:52,431 [INFO] Started epoch 12
+2025-04-13 19:30:53,439 [INFO] [Epoch 12] Train Loss: 2.7972, Val Loss: 9.8151, LR: 0.000041
+2025-04-13 19:30:53,441 [INFO]  Epoch time: 3301.01 sec
+2025-04-13 19:30:54,522 [INFO]  Saved new best model at epoch 12 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 19:30:54,523 [INFO] Started epoch 13
+2025-04-13 20:26:53,399 [INFO] [Epoch 13] Train Loss: 2.4152, Val Loss: 9.4749, LR: 0.000040
+2025-04-13 20:26:53,400 [INFO]  Epoch time: 3358.88 sec
+2025-04-13 20:26:54,517 [INFO]  Saved new best model at epoch 13 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 20:26:54,518 [INFO] Started epoch 14
+2025-04-13 21:23:25,766 [INFO] [Epoch 14] Train Loss: 2.0832, Val Loss: 9.2357, LR: 0.000038
+2025-04-13 21:23:25,768 [INFO]  Epoch time: 3391.25 sec
+2025-04-13 21:23:26,851 [INFO]  Saved new best model at epoch 14 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 21:23:26,852 [INFO] Started epoch 15
+2025-04-13 22:19:33,121 [INFO] [Epoch 15] Train Loss: 1.8134, Val Loss: 9.0446, LR: 0.000036
+2025-04-13 22:19:33,122 [INFO]  Epoch time: 3366.27 sec
+2025-04-13 22:19:34,255 [INFO]  Saved new best model at epoch 15 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 22:19:34,257 [INFO] Started epoch 16
+2025-04-13 23:14:36,206 [INFO] [Epoch 16] Train Loss: 1.6055, Val Loss: 8.8016, LR: 0.000035
+2025-04-13 23:14:36,208 [INFO]  Epoch time: 3301.95 sec
+2025-04-13 23:14:37,303 [INFO]  Saved new best model at epoch 16 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-13 23:14:37,305 [INFO] Started epoch 17
+2025-04-14 00:10:10,416 [INFO] [Epoch 17] Train Loss: 1.4059, Val Loss: 8.6375, LR: 0.000033
+2025-04-14 00:10:10,418 [INFO]  Epoch time: 3333.11 sec
+2025-04-14 00:10:11,484 [INFO]  Saved new best model at epoch 17 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 00:10:11,485 [INFO] Started epoch 18
+2025-04-14 01:05:59,200 [INFO] [Epoch 18] Train Loss: 1.2476, Val Loss: 8.4718, LR: 0.000031
+2025-04-14 01:05:59,202 [INFO]  Epoch time: 3347.72 sec
+2025-04-14 01:06:00,560 [INFO]  Saved new best model at epoch 18 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 01:06:00,561 [INFO] Started epoch 19
+2025-04-14 02:01:40,628 [INFO] [Epoch 19] Train Loss: 1.1014, Val Loss: 8.3563, LR: 0.000029
+2025-04-14 02:01:40,630 [INFO]  Epoch time: 3340.07 sec
+2025-04-14 02:01:41,781 [INFO]  Saved new best model at epoch 19 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 02:01:41,782 [INFO] Started epoch 20
+2025-04-14 02:57:12,704 [INFO] [Epoch 20] Train Loss: 0.9822, Val Loss: 8.2193, LR: 0.000027
+2025-04-14 02:57:12,706 [INFO]  Epoch time: 3330.92 sec
+2025-04-14 02:57:13,869 [INFO]  Saved new best model at epoch 20 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 02:57:13,870 [INFO] Started epoch 21
+2025-04-14 03:52:40,543 [INFO] [Epoch 21] Train Loss: 0.8827, Val Loss: 8.0746, LR: 0.000025
+2025-04-14 03:52:40,545 [INFO]  Epoch time: 3326.67 sec
+2025-04-14 03:52:42,007 [INFO]  Saved new best model at epoch 21 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 03:52:42,009 [INFO] Started epoch 22
+2025-04-14 04:48:42,757 [INFO] [Epoch 22] Train Loss: 0.7884, Val Loss: 7.9412, LR: 0.000023
+2025-04-14 04:48:42,758 [INFO]  Epoch time: 3360.75 sec
+2025-04-14 04:48:43,707 [INFO]  Saved new best model at epoch 22 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 04:48:43,709 [INFO] Started epoch 23
+2025-04-14 05:45:01,646 [INFO] [Epoch 23] Train Loss: 0.7121, Val Loss: 7.8442, LR: 0.000021
+2025-04-14 05:45:01,648 [INFO]  Epoch time: 3377.94 sec
+2025-04-14 05:45:02,609 [INFO]  Saved new best model at epoch 23 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 05:45:02,610 [INFO] Started epoch 24
+2025-04-14 06:41:05,861 [INFO] [Epoch 24] Train Loss: 0.6383, Val Loss: 7.7752, LR: 0.000019
+2025-04-14 06:41:05,863 [INFO]  Epoch time: 3363.25 sec
+2025-04-14 06:41:06,819 [INFO]  Saved new best model at epoch 24 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 06:41:06,821 [INFO] Started epoch 25
+2025-04-14 07:37:07,893 [INFO] [Epoch 25] Train Loss: 0.5758, Val Loss: 7.6892, LR: 0.000018
+2025-04-14 07:37:07,895 [INFO]  Epoch time: 3361.07 sec
+2025-04-14 07:37:08,881 [INFO]  Saved new best model at epoch 25 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 07:37:08,883 [INFO] Started epoch 26
+2025-04-14 08:33:31,700 [INFO] [Epoch 26] Train Loss: 0.5324, Val Loss: 7.5713, LR: 0.000016
+2025-04-14 08:33:31,714 [INFO]  Epoch time: 3382.83 sec
+2025-04-14 08:33:32,716 [INFO]  Saved new best model at epoch 26 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 08:33:32,717 [INFO] Started epoch 27
+2025-04-14 09:28:21,661 [INFO] [Epoch 27] Train Loss: 0.4874, Val Loss: 7.5468, LR: 0.000014
+2025-04-14 09:28:21,663 [INFO]  Epoch time: 3288.95 sec
+2025-04-14 09:28:22,749 [INFO]  Saved new best model at epoch 27 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 09:28:22,750 [INFO] Started epoch 28
+2025-04-14 10:24:38,258 [INFO] [Epoch 28] Train Loss: 0.4493, Val Loss: 7.4134, LR: 0.000012
+2025-04-14 10:24:38,259 [INFO]  Epoch time: 3375.51 sec
+2025-04-14 10:24:39,261 [INFO]  Saved new best model at epoch 28 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 10:24:39,262 [INFO] Started epoch 29
+2025-04-14 11:20:20,194 [INFO] [Epoch 29] Train Loss: 0.4098, Val Loss: 7.3991, LR: 0.000011
+2025-04-14 11:20:20,196 [INFO]  Epoch time: 3340.93 sec
+2025-04-14 11:20:21,204 [INFO]  Saved new best model at epoch 29 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 11:20:21,206 [INFO] Started epoch 30
+2025-04-14 12:19:36,710 [INFO] [Epoch 30] Train Loss: 0.3826, Val Loss: 7.3496, LR: 0.000009
+2025-04-14 12:19:36,712 [INFO]  Epoch time: 3555.51 sec
+2025-04-14 12:19:37,700 [INFO]  Saved new best model at epoch 30 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 12:19:37,702 [INFO] Started epoch 31
+2025-04-14 13:15:57,265 [INFO] [Epoch 31] Train Loss: 0.3538, Val Loss: 7.3140, LR: 0.000008
+2025-04-14 13:15:57,267 [INFO]  Epoch time: 3379.57 sec
+2025-04-14 13:15:58,325 [INFO]  Saved new best model at epoch 31 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 13:15:58,327 [INFO] Started epoch 32
+2025-04-14 14:12:16,542 [INFO] [Epoch 32] Train Loss: 0.3214, Val Loss: 7.2763, LR: 0.000006
+2025-04-14 14:12:16,544 [INFO]  Epoch time: 3378.22 sec
+2025-04-14 14:12:17,531 [INFO]  Saved new best model at epoch 32 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 14:12:17,532 [INFO] Started epoch 33
+2025-04-14 15:08:14,492 [INFO] [Epoch 33] Train Loss: 0.3104, Val Loss: 7.2328, LR: 0.000005
+2025-04-14 15:08:14,493 [INFO]  Epoch time: 3356.96 sec
+2025-04-14 15:08:15,511 [INFO]  Saved new best model at epoch 33 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 15:08:15,512 [INFO] Started epoch 34
+2025-04-14 16:04:27,584 [INFO] [Epoch 34] Train Loss: 0.2855, Val Loss: 7.2190, LR: 0.000004
+2025-04-14 16:04:27,586 [INFO]  Epoch time: 3372.07 sec
+2025-04-14 16:04:28,599 [INFO]  Saved new best model at epoch 34 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 16:04:28,600 [INFO] Started epoch 35
+2025-04-14 17:06:40,379 [INFO] [Epoch 35] Train Loss: 0.2767, Val Loss: 7.1772, LR: 0.000003
+2025-04-14 17:06:40,381 [INFO]  Epoch time: 3731.78 sec
+2025-04-14 17:06:41,468 [INFO]  Saved new best model at epoch 35 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 17:06:41,469 [INFO] Started epoch 36
+2025-04-14 18:01:50,631 [INFO] [Epoch 36] Train Loss: 0.2541, Val Loss: 7.1582, LR: 0.000002
+2025-04-14 18:01:50,633 [INFO]  Epoch time: 3309.16 sec
+2025-04-14 18:01:51,515 [INFO]  Saved new best model at epoch 36 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 18:01:51,516 [INFO] Started epoch 37
+2025-04-14 18:57:17,799 [INFO] [Epoch 37] Train Loss: 0.2555, Val Loss: 7.1544, LR: 0.000002
+2025-04-14 18:57:17,802 [INFO]  Epoch time: 3326.29 sec
+2025-04-14 18:57:18,850 [INFO]  Saved new best model at epoch 37 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 18:57:18,851 [INFO] Started epoch 38
+2025-04-14 19:53:54,235 [INFO] [Epoch 38] Train Loss: 0.2418, Val Loss: 7.1349, LR: 0.000001
+2025-04-14 19:53:54,238 [INFO]  Epoch time: 3395.39 sec
+2025-04-14 19:53:55,214 [INFO]  Saved new best model at epoch 38 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 19:53:55,216 [INFO] Started epoch 39
+2025-04-14 20:50:46,670 [INFO] [Epoch 39] Train Loss: 0.2431, Val Loss: 7.1449, LR: 0.000001
+2025-04-14 20:50:46,672 [INFO]  Epoch time: 3411.46 sec
+2025-04-14 20:50:47,212 [INFO] Started epoch 40
+2025-04-14 21:47:22,524 [INFO] [Epoch 40] Train Loss: 0.2383, Val Loss: 7.1191, LR: 0.000001
+2025-04-14 21:47:22,526 [INFO]  Epoch time: 3395.31 sec
+2025-04-14 21:47:23,874 [INFO]  Saved new best model at epoch 40 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/bbeca_nfnet_l1_losscosface_bz32_e40_lr5e-05_m4_r288_n140000/trained_model_cosface.pth
+2025-04-14 21:47:23,876 [INFO] Training completed. Starting evaluation...
+2025-04-14 22:47:36,776 [INFO] Evaluation completed successfully
