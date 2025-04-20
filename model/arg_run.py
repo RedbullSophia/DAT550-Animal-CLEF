@@ -209,6 +209,7 @@ if __name__ == "__main__":
     parser.add_argument("--loss_type", type=str, default="arcface", 
                        choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
                        help="Loss function to use for training")
+    parser.add_argument("--filename", type=str, help="Name of file to store as")
 
     args = parser.parse_args()
 
@@ -217,7 +218,7 @@ if __name__ == "__main__":
     # Set paths based on remote flag
     if args.remote:
         date_str = datetime.now().strftime("%Y-%m-%d")
-        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/{date_str}_{args.backbone}_{args.loss_type}_batchz_{args.batch_size}_embdim_{args.embedding_dim}_e_{args.num_epochs}_imgprcls_{args.m}_pixels_{args.resize}/"
+        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/{date_str}_{args.filename}/"
         DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
     else:
         save_path = f"model_data/bb{args.backbone}_loss{args.loss_type}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
