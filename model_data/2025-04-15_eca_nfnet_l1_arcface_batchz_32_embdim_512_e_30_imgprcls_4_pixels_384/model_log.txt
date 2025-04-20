@@ -1,0 +1,96 @@
+2025-04-15 20:49:30,184 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:49:30,185 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:49:30,186 [INFO] Batch size: 32
+2025-04-15 20:49:30,187 [INFO] Epochs: 30
+2025-04-15 20:49:30,188 [INFO] Learning rate: 0.0001
+2025-04-15 20:49:30,189 [INFO] Images per class (M): 4
+2025-04-15 20:49:30,190 [INFO] Image size: 384x384
+2025-04-15 20:49:30,191 [INFO] Dataset size (n): 140000
+2025-04-15 20:49:30,192 [INFO] Validation split: 0.2
+2025-04-15 20:49:30,193 [INFO] Weight decay: 5e-05
+2025-04-15 20:49:30,194 [INFO] Dropout rate: 0.3
+2025-04-15 20:49:30,195 [INFO] Scheduler: cosine
+2025-04-15 20:49:30,196 [INFO] Early stopping patience: 10
+2025-04-15 20:49:30,197 [INFO] Data augmentation: True
+2025-04-15 20:49:30,198 [INFO] Embedding dimension: 512
+2025-04-15 20:49:30,199 [INFO] Loss type: arcface
+2025-04-15 20:49:30,200 [INFO] Margin: 0.3
+2025-04-15 20:49:30,201 [INFO] Scale: 64.0
+2025-04-15 20:49:30,202 [INFO] =============================
+2025-04-15 20:49:30,340 [INFO] Using device: cuda
+2025-04-15 20:49:30,342 [INFO] Using remote paths
+2025-04-15 20:49:30,343 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:49:30,344 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_512_e_30_imgprcls_4_pixels_384/
+2025-04-15 20:49:30,400 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:49:30,401 [INFO] Using data augmentation
+2025-04-15 20:49:30,403 [INFO] Loading dataset...
+2025-04-15 20:49:31,868 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:49:40,577 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:49:41,232 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:49:41,540 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:49:46,758 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-15 20:49:46,762 [INFO] Using CosineAnnealingLR scheduler
+2025-04-15 20:49:46,763 [INFO] Started epoch 1
+2025-04-15 20:52:14,721 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:52:14,723 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:52:14,724 [INFO] Batch size: 32
+2025-04-15 20:52:14,725 [INFO] Epochs: 30
+2025-04-15 20:52:14,726 [INFO] Learning rate: 0.0001
+2025-04-15 20:52:14,727 [INFO] Images per class (M): 4
+2025-04-15 20:52:14,728 [INFO] Image size: 384x384
+2025-04-15 20:52:14,729 [INFO] Dataset size (n): 140000
+2025-04-15 20:52:14,730 [INFO] Validation split: 0.2
+2025-04-15 20:52:14,731 [INFO] Weight decay: 5e-05
+2025-04-15 20:52:14,732 [INFO] Dropout rate: 0.3
+2025-04-15 20:52:14,733 [INFO] Scheduler: cosine
+2025-04-15 20:52:14,734 [INFO] Early stopping patience: 10
+2025-04-15 20:52:14,735 [INFO] Data augmentation: True
+2025-04-15 20:52:14,736 [INFO] Embedding dimension: 512
+2025-04-15 20:52:14,737 [INFO] Loss type: arcface
+2025-04-15 20:52:14,738 [INFO] Margin: 0.3
+2025-04-15 20:52:14,739 [INFO] Scale: 64.0
+2025-04-15 20:52:14,740 [INFO] =============================
+2025-04-15 20:52:14,831 [INFO] Using device: cuda
+2025-04-15 20:52:14,832 [INFO] Using remote paths
+2025-04-15 20:52:14,833 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:52:14,834 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_512_e_30_imgprcls_4_pixels_384/
+2025-04-15 20:52:14,899 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:52:14,900 [INFO] Using data augmentation
+2025-04-15 20:52:14,901 [INFO] Loading dataset...
+2025-04-15 20:52:15,635 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:52:22,388 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:52:22,999 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:52:23,207 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:53:07,596 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:53:07,598 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:53:07,599 [INFO] Batch size: 32
+2025-04-15 20:53:07,600 [INFO] Epochs: 30
+2025-04-15 20:53:07,601 [INFO] Learning rate: 0.0001
+2025-04-15 20:53:07,602 [INFO] Images per class (M): 4
+2025-04-15 20:53:07,603 [INFO] Image size: 384x384
+2025-04-15 20:53:07,605 [INFO] Dataset size (n): 140000
+2025-04-15 20:53:07,606 [INFO] Validation split: 0.2
+2025-04-15 20:53:07,607 [INFO] Weight decay: 5e-05
+2025-04-15 20:53:07,608 [INFO] Dropout rate: 0.3
+2025-04-15 20:53:07,609 [INFO] Scheduler: cosine
+2025-04-15 20:53:07,610 [INFO] Early stopping patience: 10
+2025-04-15 20:53:07,611 [INFO] Data augmentation: True
+2025-04-15 20:53:07,612 [INFO] Embedding dimension: 512
+2025-04-15 20:53:07,613 [INFO] Loss type: arcface
+2025-04-15 20:53:07,614 [INFO] Margin: 0.3
+2025-04-15 20:53:07,615 [INFO] Scale: 64.0
+2025-04-15 20:53:07,616 [INFO] =============================
+2025-04-15 20:53:07,710 [INFO] Using device: cuda
+2025-04-15 20:53:07,712 [INFO] Using remote paths
+2025-04-15 20:53:07,713 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:53:07,714 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_512_e_30_imgprcls_4_pixels_384/
+2025-04-15 20:53:07,783 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:53:07,785 [INFO] Using data augmentation
+2025-04-15 20:53:07,787 [INFO] Loading dataset...
+2025-04-15 20:53:08,483 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:53:15,219 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:53:15,834 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:53:16,015 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:53:17,684 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-15 20:53:17,688 [INFO] Using CosineAnnealingLR scheduler
+2025-04-15 20:53:17,689 [INFO] Started epoch 1

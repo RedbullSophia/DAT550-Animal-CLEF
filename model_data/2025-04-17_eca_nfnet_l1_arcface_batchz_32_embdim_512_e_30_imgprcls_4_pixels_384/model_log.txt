@@ -1,0 +1,33 @@
+2025-04-17 21:24:04,434 [INFO] === TRAINING CONFIGURATION ===
+2025-04-17 21:24:04,436 [INFO] Backbone: eca_nfnet_l1
+2025-04-17 21:24:04,438 [INFO] Batch size: 32
+2025-04-17 21:24:04,439 [INFO] Epochs: 30
+2025-04-17 21:24:04,440 [INFO] Learning rate: 0.0001
+2025-04-17 21:24:04,442 [INFO] Images per class (M): 4
+2025-04-17 21:24:04,443 [INFO] Image size: 384x384
+2025-04-17 21:24:04,444 [INFO] Dataset size (n): 140000
+2025-04-17 21:24:04,445 [INFO] Validation split: 0.2
+2025-04-17 21:24:04,447 [INFO] Weight decay: 5e-05
+2025-04-17 21:24:04,448 [INFO] Dropout rate: 0.3
+2025-04-17 21:24:04,449 [INFO] Scheduler: cosine
+2025-04-17 21:24:04,450 [INFO] Early stopping patience: 10
+2025-04-17 21:24:04,452 [INFO] Data augmentation: True
+2025-04-17 21:24:04,453 [INFO] Embedding dimension: 512
+2025-04-17 21:24:04,454 [INFO] Loss type: arcface
+2025-04-17 21:24:04,456 [INFO] Margin: 0.3
+2025-04-17 21:24:04,457 [INFO] Scale: 64.0
+2025-04-17 21:24:04,458 [INFO] =============================
+2025-04-17 21:24:04,571 [INFO] Using device: cuda
+2025-04-17 21:24:04,573 [INFO] Using remote paths
+2025-04-17 21:24:04,574 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-17 21:24:04,576 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-17_eca_nfnet_l1_arcface_batchz_32_embdim_512_e_30_imgprcls_4_pixels_384/
+2025-04-17 21:24:04,642 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-17 21:24:04,644 [INFO] Using data augmentation
+2025-04-17 21:24:04,645 [INFO] Loading dataset...
+2025-04-17 21:24:05,707 [INFO] PyTorch version 2.6.0 available.
+2025-04-17 21:24:13,524 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-17 21:24:14,142 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-17 21:24:14,306 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-17 21:24:16,077 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-17 21:24:16,081 [INFO] Using CosineAnnealingLR scheduler
+2025-04-17 21:24:16,083 [INFO] Started epoch 1

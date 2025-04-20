@@ -1,0 +1,135 @@
+2025-04-15 20:49:30,184 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:49:30,186 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:49:30,186 [INFO] Batch size: 32
+2025-04-15 20:49:30,187 [INFO] Epochs: 30
+2025-04-15 20:49:30,188 [INFO] Learning rate: 0.0001
+2025-04-15 20:49:30,189 [INFO] Images per class (M): 4
+2025-04-15 20:49:30,190 [INFO] Image size: 288x288
+2025-04-15 20:49:30,191 [INFO] Dataset size (n): 140000
+2025-04-15 20:49:30,192 [INFO] Validation split: 0.2
+2025-04-15 20:49:30,193 [INFO] Weight decay: 5e-05
+2025-04-15 20:49:30,194 [INFO] Dropout rate: 0.3
+2025-04-15 20:49:30,196 [INFO] Scheduler: cosine
+2025-04-15 20:49:30,197 [INFO] Early stopping patience: 10
+2025-04-15 20:49:30,198 [INFO] Data augmentation: True
+2025-04-15 20:49:30,199 [INFO] Embedding dimension: 512
+2025-04-15 20:49:30,200 [INFO] Loss type: triplet
+2025-04-15 20:49:30,201 [INFO] Margin: 0.3
+2025-04-15 20:49:30,202 [INFO] =============================
+2025-04-15 20:49:30,356 [INFO] Using device: cuda
+2025-04-15 20:49:30,357 [INFO] Using remote paths
+2025-04-15 20:49:30,359 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:49:30,360 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/
+2025-04-15 20:49:30,412 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:49:30,414 [INFO] Using data augmentation
+2025-04-15 20:49:30,415 [INFO] Loading dataset...
+2025-04-15 20:49:31,869 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:49:40,504 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:49:41,148 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:49:41,541 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:49:46,713 [INFO] Using Triplet Margin loss with margin=0.3
+2025-04-15 20:49:46,717 [INFO] Using CosineAnnealingLR scheduler
+2025-04-15 20:49:46,718 [INFO] Started epoch 1
+2025-04-15 22:11:42,745 [INFO] [Epoch 1] Train Loss: 0.1499, Val Loss: 0.0271, LR: 0.000100
+2025-04-15 22:11:42,746 [INFO]  Epoch time: 4916.03 sec
+2025-04-15 22:11:44,115 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-15 22:11:44,116 [INFO] Started epoch 2
+2025-04-15 23:14:52,570 [INFO] [Epoch 2] Train Loss: 0.1351, Val Loss: 0.0263, LR: 0.000100
+2025-04-15 23:14:52,572 [INFO]  Epoch time: 3788.46 sec
+2025-04-15 23:14:53,641 [INFO]  Saved new best model at epoch 2 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-15 23:14:53,643 [INFO] Started epoch 3
+2025-04-16 00:18:02,342 [INFO] [Epoch 3] Train Loss: 0.1269, Val Loss: 0.0257, LR: 0.000099
+2025-04-16 00:18:02,354 [INFO]  Epoch time: 3788.71 sec
+2025-04-16 00:18:03,587 [INFO]  Saved new best model at epoch 3 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 00:18:03,588 [INFO] Started epoch 4
+2025-04-16 01:19:31,868 [INFO] [Epoch 4] Train Loss: 0.1211, Val Loss: 0.0242, LR: 0.000098
+2025-04-16 01:19:31,887 [INFO]  Epoch time: 3688.30 sec
+2025-04-16 01:19:33,133 [INFO]  Saved new best model at epoch 4 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 01:19:33,134 [INFO] Started epoch 5
+2025-04-16 02:21:01,012 [INFO] [Epoch 5] Train Loss: 0.1145, Val Loss: 0.0245, LR: 0.000096
+2025-04-16 02:21:01,029 [INFO]  Epoch time: 3687.90 sec
+2025-04-16 02:21:01,780 [INFO] Started epoch 6
+2025-04-16 03:22:32,757 [INFO] [Epoch 6] Train Loss: 0.1109, Val Loss: 0.0246, LR: 0.000093
+2025-04-16 03:22:32,765 [INFO]  Epoch time: 3690.98 sec
+2025-04-16 03:22:33,349 [INFO] Started epoch 7
+2025-04-16 04:23:39,393 [INFO] [Epoch 7] Train Loss: 0.1079, Val Loss: 0.0232, LR: 0.000091
+2025-04-16 04:23:39,395 [INFO]  Epoch time: 3666.05 sec
+2025-04-16 04:23:40,489 [INFO]  Saved new best model at epoch 7 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 04:23:40,490 [INFO] Started epoch 8
+2025-04-16 05:24:58,579 [INFO] [Epoch 8] Train Loss: 0.1027, Val Loss: 0.0246, LR: 0.000087
+2025-04-16 05:24:58,580 [INFO]  Epoch time: 3678.09 sec
+2025-04-16 05:24:59,285 [INFO] Started epoch 9
+2025-04-16 06:26:41,752 [INFO] [Epoch 9] Train Loss: 0.0989, Val Loss: 0.0222, LR: 0.000084
+2025-04-16 06:26:41,753 [INFO]  Epoch time: 3702.47 sec
+2025-04-16 06:26:42,834 [INFO]  Saved new best model at epoch 9 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 06:26:42,836 [INFO] Started epoch 10
+2025-04-16 07:28:46,689 [INFO] [Epoch 10] Train Loss: 0.0949, Val Loss: 0.0237, LR: 0.000080
+2025-04-16 07:28:46,690 [INFO]  Epoch time: 3723.85 sec
+2025-04-16 07:28:47,279 [INFO] Started epoch 11
+2025-04-16 08:28:49,421 [INFO] [Epoch 11] Train Loss: 0.0906, Val Loss: 0.0225, LR: 0.000075
+2025-04-16 08:28:49,422 [INFO]  Epoch time: 3602.14 sec
+2025-04-16 08:28:50,022 [INFO] Started epoch 12
+2025-04-16 09:27:04,449 [INFO] [Epoch 12] Train Loss: 0.0899, Val Loss: 0.0210, LR: 0.000071
+2025-04-16 09:27:04,451 [INFO]  Epoch time: 3494.43 sec
+2025-04-16 09:27:05,488 [INFO]  Saved new best model at epoch 12 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 09:27:05,490 [INFO] Started epoch 13
+2025-04-16 10:24:26,344 [INFO] [Epoch 13] Train Loss: 0.0841, Val Loss: 0.0227, LR: 0.000066
+2025-04-16 10:24:26,346 [INFO]  Epoch time: 3440.86 sec
+2025-04-16 10:24:27,007 [INFO] Started epoch 14
+2025-04-16 11:22:07,468 [INFO] [Epoch 14] Train Loss: 0.0836, Val Loss: 0.0210, LR: 0.000061
+2025-04-16 11:22:07,470 [INFO]  Epoch time: 3460.46 sec
+2025-04-16 11:22:08,133 [INFO] Started epoch 15
+2025-04-16 12:18:31,219 [INFO] [Epoch 15] Train Loss: 0.0735, Val Loss: 0.0225, LR: 0.000056
+2025-04-16 12:18:31,221 [INFO]  Epoch time: 3383.09 sec
+2025-04-16 12:18:31,869 [INFO] Started epoch 16
+2025-04-16 13:15:59,560 [INFO] [Epoch 16] Train Loss: 0.0730, Val Loss: 0.0204, LR: 0.000051
+2025-04-16 13:15:59,562 [INFO]  Epoch time: 3447.69 sec
+2025-04-16 13:16:00,740 [INFO]  Saved new best model at epoch 16 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 13:16:00,741 [INFO] Started epoch 17
+2025-04-16 14:13:48,627 [INFO] [Epoch 17] Train Loss: 0.0682, Val Loss: 0.0210, LR: 0.000045
+2025-04-16 14:13:48,628 [INFO]  Epoch time: 3467.89 sec
+2025-04-16 14:13:49,270 [INFO] Started epoch 18
+2025-04-16 15:10:59,253 [INFO] [Epoch 18] Train Loss: 0.0663, Val Loss: 0.0195, LR: 0.000040
+2025-04-16 15:10:59,254 [INFO]  Epoch time: 3429.98 sec
+2025-04-16 15:11:00,430 [INFO]  Saved new best model at epoch 18 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 15:11:00,432 [INFO] Started epoch 19
+2025-04-16 16:08:16,437 [INFO] [Epoch 19] Train Loss: 0.0641, Val Loss: 0.0212, LR: 0.000035
+2025-04-16 16:08:16,469 [INFO]  Epoch time: 3436.04 sec
+2025-04-16 16:08:17,136 [INFO] Started epoch 20
+2025-04-16 17:05:10,011 [INFO] [Epoch 20] Train Loss: 0.0580, Val Loss: 0.0207, LR: 0.000030
+2025-04-16 17:05:10,051 [INFO]  Epoch time: 3412.91 sec
+2025-04-16 17:05:10,855 [INFO] Started epoch 21
+2025-04-16 18:02:36,468 [INFO] [Epoch 21] Train Loss: 0.0551, Val Loss: 0.0214, LR: 0.000026
+2025-04-16 18:02:36,499 [INFO]  Epoch time: 3445.64 sec
+2025-04-16 18:02:37,233 [INFO] Started epoch 22
+2025-04-16 19:00:15,413 [INFO] [Epoch 22] Train Loss: 0.0555, Val Loss: 0.0199, LR: 0.000021
+2025-04-16 19:00:15,428 [INFO]  Epoch time: 3458.19 sec
+2025-04-16 19:00:16,064 [INFO] Started epoch 23
+2025-04-16 19:57:29,448 [INFO] [Epoch 23] Train Loss: 0.0485, Val Loss: 0.0194, LR: 0.000017
+2025-04-16 19:57:29,449 [INFO]  Epoch time: 3433.39 sec
+2025-04-16 19:57:30,810 [INFO]  Saved new best model at epoch 23 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 19:57:30,811 [INFO] Started epoch 24
+2025-04-16 20:55:47,803 [INFO] [Epoch 24] Train Loss: 0.0477, Val Loss: 0.0198, LR: 0.000014
+2025-04-16 20:55:47,804 [INFO]  Epoch time: 3496.99 sec
+2025-04-16 20:55:48,721 [INFO] Started epoch 25
+2025-04-16 21:54:10,273 [INFO] [Epoch 25] Train Loss: 0.0478, Val Loss: 0.0197, LR: 0.000010
+2025-04-16 21:54:10,275 [INFO]  Epoch time: 3501.55 sec
+2025-04-16 21:54:11,043 [INFO] Started epoch 26
+2025-04-16 22:52:08,513 [INFO] [Epoch 26] Train Loss: 0.0451, Val Loss: 0.0184, LR: 0.000008
+2025-04-16 22:52:08,515 [INFO]  Epoch time: 3477.47 sec
+2025-04-16 22:52:09,943 [INFO]  Saved new best model at epoch 26 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-16 22:52:09,945 [INFO] Started epoch 27
+2025-04-16 23:50:30,612 [INFO] [Epoch 27] Train Loss: 0.0417, Val Loss: 0.0189, LR: 0.000005
+2025-04-16 23:50:30,614 [INFO]  Epoch time: 3500.67 sec
+2025-04-16 23:50:31,517 [INFO] Started epoch 28
+2025-04-17 00:49:01,490 [INFO] [Epoch 28] Train Loss: 0.0411, Val Loss: 0.0194, LR: 0.000003
+2025-04-17 00:49:01,491 [INFO]  Epoch time: 3509.97 sec
+2025-04-17 00:49:02,328 [INFO] Started epoch 29
+2025-04-17 01:47:22,407 [INFO] [Epoch 29] Train Loss: 0.0429, Val Loss: 0.0185, LR: 0.000002
+2025-04-17 01:47:22,409 [INFO]  Epoch time: 3500.08 sec
+2025-04-17 01:47:23,453 [INFO] Started epoch 30
+2025-04-17 02:44:20,500 [INFO] [Epoch 30] Train Loss: 0.0411, Val Loss: 0.0178, LR: 0.000001
+2025-04-17 02:44:20,502 [INFO]  Epoch time: 3417.05 sec
+2025-04-17 02:44:21,984 [INFO]  Saved new best model at epoch 30 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_triplet_batchz_32_embdim_512_e_30_imgprcls_4_pixels_288/trained_model_triplet.pth
+2025-04-17 02:44:21,986 [INFO] Training completed. Starting evaluation...
+2025-04-17 03:55:40,160 [INFO] Evaluation completed successfully

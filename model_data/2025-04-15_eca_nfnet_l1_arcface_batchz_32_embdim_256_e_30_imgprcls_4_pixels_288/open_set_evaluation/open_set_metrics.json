@@ -1,0 +1,9 @@
+{
+    "BAKS": 0.10691063479060353,
+    "BAUS": 0.49796146774322486,
+    "geometric_mean": 0.23073226176174153,
+    "threshold": 0.3285714285714286,
+    "backbone": "eca_nfnet_l1",
+    "loss_type": "arcface",
+    "evaluation_time": "2025-04-17 04:14:37"
+}

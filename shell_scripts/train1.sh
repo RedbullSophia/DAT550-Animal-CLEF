@@ -16,7 +16,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 python -u ../model/arg_run.py \
   --remote \
   --batch_size 32 \
-  --num_epochs 35 \
+  --num_epochs 30 \
   --lr 0.0001 \
   --m 4 \
   --resize 288 \
@@ -24,12 +24,12 @@ python -u ../model/arg_run.py \
   --backbone eca_nfnet_l1 \
   --val_split 0.2 \
   --weight_decay 5e-5 \
-  --dropout 0.3 \
+  --dropout 0.1 \
   --scheduler cosine \
   --patience 10 \
   --augmentation \
-  --embedding_dim 768 \
-  --margin 0.2 \
-  --scale 80.0 \
-  --loss_type cosface
+  --embedding_dim 512 \
+  --margin 0.3 \
+  --scale 64.0 \
+  --loss_type arcface
 

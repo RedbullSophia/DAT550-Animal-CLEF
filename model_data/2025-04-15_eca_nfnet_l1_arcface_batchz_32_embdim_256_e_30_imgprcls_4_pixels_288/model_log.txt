@@ -1,0 +1,187 @@
+2025-04-15 20:49:47,239 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:49:47,241 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:49:47,242 [INFO] Batch size: 32
+2025-04-15 20:49:47,243 [INFO] Epochs: 30
+2025-04-15 20:49:47,244 [INFO] Learning rate: 0.0001
+2025-04-15 20:49:47,245 [INFO] Images per class (M): 4
+2025-04-15 20:49:47,246 [INFO] Image size: 288x288
+2025-04-15 20:49:47,247 [INFO] Dataset size (n): 140000
+2025-04-15 20:49:47,248 [INFO] Validation split: 0.2
+2025-04-15 20:49:47,249 [INFO] Weight decay: 5e-05
+2025-04-15 20:49:47,250 [INFO] Dropout rate: 0.3
+2025-04-15 20:49:47,251 [INFO] Scheduler: cosine
+2025-04-15 20:49:47,252 [INFO] Early stopping patience: 10
+2025-04-15 20:49:47,253 [INFO] Data augmentation: True
+2025-04-15 20:49:47,254 [INFO] Embedding dimension: 256
+2025-04-15 20:49:47,255 [INFO] Loss type: arcface
+2025-04-15 20:49:47,256 [INFO] Margin: 0.3
+2025-04-15 20:49:47,257 [INFO] Scale: 64.0
+2025-04-15 20:49:47,258 [INFO] =============================
+2025-04-15 20:49:47,360 [INFO] Using device: cuda
+2025-04-15 20:49:47,362 [INFO] Using remote paths
+2025-04-15 20:49:47,363 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:49:47,364 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/
+2025-04-15 20:49:47,414 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:49:47,416 [INFO] Using data augmentation
+2025-04-15 20:49:47,417 [INFO] Loading dataset...
+2025-04-15 20:49:48,193 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:49:55,010 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:49:55,622 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:49:55,808 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:49:57,230 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-15 20:49:57,234 [INFO] Using CosineAnnealingLR scheduler
+2025-04-15 20:49:57,235 [INFO] Started epoch 1
+2025-04-15 20:53:03,529 [INFO] === TRAINING CONFIGURATION ===
+2025-04-15 20:53:03,531 [INFO] Backbone: eca_nfnet_l1
+2025-04-15 20:53:03,532 [INFO] Batch size: 32
+2025-04-15 20:53:03,533 [INFO] Epochs: 30
+2025-04-15 20:53:03,534 [INFO] Learning rate: 0.0001
+2025-04-15 20:53:03,535 [INFO] Images per class (M): 4
+2025-04-15 20:53:03,537 [INFO] Image size: 288x288
+2025-04-15 20:53:03,538 [INFO] Dataset size (n): 140000
+2025-04-15 20:53:03,539 [INFO] Validation split: 0.2
+2025-04-15 20:53:03,540 [INFO] Weight decay: 5e-05
+2025-04-15 20:53:03,541 [INFO] Dropout rate: 0.3
+2025-04-15 20:53:03,542 [INFO] Scheduler: cosine
+2025-04-15 20:53:03,543 [INFO] Early stopping patience: 10
+2025-04-15 20:53:03,544 [INFO] Data augmentation: True
+2025-04-15 20:53:03,546 [INFO] Embedding dimension: 256
+2025-04-15 20:53:03,547 [INFO] Loss type: arcface
+2025-04-15 20:53:03,548 [INFO] Margin: 0.3
+2025-04-15 20:53:03,550 [INFO] Scale: 64.0
+2025-04-15 20:53:03,551 [INFO] =============================
+2025-04-15 20:53:03,627 [INFO] Using device: cuda
+2025-04-15 20:53:03,629 [INFO] Using remote paths
+2025-04-15 20:53:03,630 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-15 20:53:03,631 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/
+2025-04-15 20:53:03,695 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-15 20:53:03,697 [INFO] Using data augmentation
+2025-04-15 20:53:03,698 [INFO] Loading dataset...
+2025-04-15 20:53:04,415 [INFO] PyTorch version 2.6.0 available.
+2025-04-15 20:53:11,343 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-15 20:53:11,997 [INFO] Loading pretrained weights from Hugging Face hub (timm/eca_nfnet_l1.ra2_in1k)
+2025-04-15 20:53:12,171 [INFO] [timm/eca_nfnet_l1.ra2_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-15 20:53:13,726 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-15 20:53:13,730 [INFO] Using CosineAnnealingLR scheduler
+2025-04-15 20:53:13,731 [INFO] Started epoch 1
+2025-04-15 22:14:01,278 [INFO] [Epoch 1] Train Loss: 13.9109, Val Loss: 13.5756, LR: 0.000100
+2025-04-15 22:14:01,280 [INFO]  Epoch time: 4847.55 sec
+2025-04-15 22:14:02,602 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-15 22:14:02,604 [INFO] Started epoch 2
+2025-04-15 23:18:48,947 [INFO] [Epoch 2] Train Loss: 13.4732, Val Loss: 13.3087, LR: 0.000100
+2025-04-15 23:18:48,976 [INFO]  Epoch time: 3886.37 sec
+2025-04-15 23:18:50,037 [INFO]  Saved new best model at epoch 2 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-15 23:18:50,038 [INFO] Started epoch 3
+2025-04-16 00:23:57,949 [INFO] [Epoch 3] Train Loss: 13.1577, Val Loss: 12.2881, LR: 0.000099
+2025-04-16 00:23:57,951 [INFO]  Epoch time: 3907.91 sec
+2025-04-16 00:23:59,068 [INFO]  Saved new best model at epoch 3 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 00:23:59,069 [INFO] Started epoch 4
+2025-04-16 01:28:15,000 [INFO] [Epoch 4] Train Loss: 11.9157, Val Loss: 10.2106, LR: 0.000098
+2025-04-16 01:28:15,015 [INFO]  Epoch time: 3855.95 sec
+2025-04-16 01:28:16,101 [INFO]  Saved new best model at epoch 4 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 01:28:16,102 [INFO] Started epoch 5
+2025-04-16 02:31:51,178 [INFO] [Epoch 5] Train Loss: 8.9934, Val Loss: 8.3901, LR: 0.000096
+2025-04-16 02:31:51,180 [INFO]  Epoch time: 3815.08 sec
+2025-04-16 02:31:52,273 [INFO]  Saved new best model at epoch 5 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 02:31:52,274 [INFO] Started epoch 6
+2025-04-16 03:35:54,636 [INFO] [Epoch 6] Train Loss: 5.5445, Val Loss: 7.4349, LR: 0.000093
+2025-04-16 03:35:54,638 [INFO]  Epoch time: 3842.36 sec
+2025-04-16 03:35:55,634 [INFO]  Saved new best model at epoch 6 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 03:35:55,636 [INFO] Started epoch 7
+2025-04-16 04:39:00,209 [INFO] [Epoch 7] Train Loss: 3.3828, Val Loss: 6.6916, LR: 0.000091
+2025-04-16 04:39:00,210 [INFO]  Epoch time: 3784.57 sec
+2025-04-16 04:39:01,128 [INFO]  Saved new best model at epoch 7 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 04:39:01,130 [INFO] Started epoch 8
+2025-04-16 05:42:42,774 [INFO] [Epoch 8] Train Loss: 2.2861, Val Loss: 6.2007, LR: 0.000087
+2025-04-16 05:42:42,775 [INFO]  Epoch time: 3821.65 sec
+2025-04-16 05:42:43,736 [INFO]  Saved new best model at epoch 8 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 05:42:43,738 [INFO] Started epoch 9
+2025-04-16 06:46:10,842 [INFO] [Epoch 9] Train Loss: 1.6320, Val Loss: 5.7609, LR: 0.000084
+2025-04-16 06:46:10,844 [INFO]  Epoch time: 3807.11 sec
+2025-04-16 06:46:11,891 [INFO]  Saved new best model at epoch 9 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 06:46:11,892 [INFO] Started epoch 10
+2025-04-16 07:49:48,781 [INFO] [Epoch 10] Train Loss: 1.1907, Val Loss: 5.4403, LR: 0.000080
+2025-04-16 07:49:48,783 [INFO]  Epoch time: 3816.89 sec
+2025-04-16 07:49:49,686 [INFO]  Saved new best model at epoch 10 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 07:49:49,688 [INFO] Started epoch 11
+2025-04-16 08:51:42,492 [INFO] [Epoch 11] Train Loss: 0.9226, Val Loss: 5.1747, LR: 0.000075
+2025-04-16 08:51:42,493 [INFO]  Epoch time: 3712.81 sec
+2025-04-16 08:51:43,357 [INFO]  Saved new best model at epoch 11 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 08:51:43,358 [INFO] Started epoch 12
+2025-04-16 09:51:09,040 [INFO] [Epoch 12] Train Loss: 0.7193, Val Loss: 5.0011, LR: 0.000071
+2025-04-16 09:51:09,042 [INFO]  Epoch time: 3565.68 sec
+2025-04-16 09:51:09,989 [INFO]  Saved new best model at epoch 12 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 09:51:09,990 [INFO] Started epoch 13
+2025-04-16 10:49:04,691 [INFO] [Epoch 13] Train Loss: 0.5743, Val Loss: 4.8618, LR: 0.000066
+2025-04-16 10:49:04,704 [INFO]  Epoch time: 3474.71 sec
+2025-04-16 10:49:05,646 [INFO]  Saved new best model at epoch 13 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 10:49:05,648 [INFO] Started epoch 14
+2025-04-16 11:46:43,291 [INFO] [Epoch 14] Train Loss: 0.4735, Val Loss: 4.7245, LR: 0.000061
+2025-04-16 11:46:43,293 [INFO]  Epoch time: 3457.64 sec
+2025-04-16 11:46:44,227 [INFO]  Saved new best model at epoch 14 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 11:46:44,229 [INFO] Started epoch 15
+2025-04-16 12:44:18,439 [INFO] [Epoch 15] Train Loss: 0.3896, Val Loss: 4.6172, LR: 0.000056
+2025-04-16 12:44:18,455 [INFO]  Epoch time: 3454.23 sec
+2025-04-16 12:44:19,421 [INFO]  Saved new best model at epoch 15 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 12:44:19,423 [INFO] Started epoch 16
+2025-04-16 13:41:49,119 [INFO] [Epoch 16] Train Loss: 0.3136, Val Loss: 4.4714, LR: 0.000051
+2025-04-16 13:41:49,121 [INFO]  Epoch time: 3449.70 sec
+2025-04-16 13:41:50,230 [INFO]  Saved new best model at epoch 16 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 13:41:50,231 [INFO] Started epoch 17
+2025-04-16 14:39:05,079 [INFO] [Epoch 17] Train Loss: 0.2573, Val Loss: 4.3598, LR: 0.000045
+2025-04-16 14:39:05,082 [INFO]  Epoch time: 3434.85 sec
+2025-04-16 14:39:06,049 [INFO]  Saved new best model at epoch 17 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 14:39:06,050 [INFO] Started epoch 18
+2025-04-16 15:36:50,872 [INFO] [Epoch 18] Train Loss: 0.2157, Val Loss: 4.2915, LR: 0.000040
+2025-04-16 15:36:50,896 [INFO]  Epoch time: 3464.85 sec
+2025-04-16 15:36:51,990 [INFO]  Saved new best model at epoch 18 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 15:36:51,992 [INFO] Started epoch 19
+2025-04-16 16:33:58,019 [INFO] [Epoch 19] Train Loss: 0.1835, Val Loss: 4.1891, LR: 0.000035
+2025-04-16 16:33:58,105 [INFO]  Epoch time: 3426.11 sec
+2025-04-16 16:33:59,336 [INFO]  Saved new best model at epoch 19 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 16:33:59,338 [INFO] Started epoch 20
+2025-04-16 17:31:23,809 [INFO] [Epoch 20] Train Loss: 0.1491, Val Loss: 4.1227, LR: 0.000030
+2025-04-16 17:31:23,830 [INFO]  Epoch time: 3444.49 sec
+2025-04-16 17:31:24,977 [INFO]  Saved new best model at epoch 20 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 17:31:24,979 [INFO] Started epoch 21
+2025-04-16 18:28:57,831 [INFO] [Epoch 21] Train Loss: 0.1211, Val Loss: 4.0625, LR: 0.000026
+2025-04-16 18:28:57,856 [INFO]  Epoch time: 3452.88 sec
+2025-04-16 18:28:59,093 [INFO]  Saved new best model at epoch 21 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 18:28:59,094 [INFO] Started epoch 22
+2025-04-16 19:26:01,900 [INFO] [Epoch 22] Train Loss: 0.1053, Val Loss: 3.9948, LR: 0.000021
+2025-04-16 19:26:01,902 [INFO]  Epoch time: 3422.81 sec
+2025-04-16 19:26:02,897 [INFO]  Saved new best model at epoch 22 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 19:26:02,899 [INFO] Started epoch 23
+2025-04-16 20:23:45,418 [INFO] [Epoch 23] Train Loss: 0.0879, Val Loss: 3.9449, LR: 0.000017
+2025-04-16 20:23:45,422 [INFO]  Epoch time: 3462.52 sec
+2025-04-16 20:23:46,808 [INFO]  Saved new best model at epoch 23 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 20:23:46,810 [INFO] Started epoch 24
+2025-04-16 21:21:48,277 [INFO] [Epoch 24] Train Loss: 0.0712, Val Loss: 3.8931, LR: 0.000014
+2025-04-16 21:21:48,279 [INFO]  Epoch time: 3481.47 sec
+2025-04-16 21:21:49,398 [INFO]  Saved new best model at epoch 24 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 21:21:49,400 [INFO] Started epoch 25
+2025-04-16 22:19:46,923 [INFO] [Epoch 25] Train Loss: 0.0600, Val Loss: 3.8649, LR: 0.000010
+2025-04-16 22:19:46,924 [INFO]  Epoch time: 3477.52 sec
+2025-04-16 22:19:48,074 [INFO]  Saved new best model at epoch 25 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 22:19:48,076 [INFO] Started epoch 26
+2025-04-16 23:18:01,719 [INFO] [Epoch 26] Train Loss: 0.0533, Val Loss: 3.8346, LR: 0.000008
+2025-04-16 23:18:01,721 [INFO]  Epoch time: 3493.64 sec
+2025-04-16 23:18:03,022 [INFO]  Saved new best model at epoch 26 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-16 23:18:03,023 [INFO] Started epoch 27
+2025-04-17 00:16:37,457 [INFO] [Epoch 27] Train Loss: 0.0454, Val Loss: 3.8061, LR: 0.000005
+2025-04-17 00:16:37,459 [INFO]  Epoch time: 3514.44 sec
+2025-04-17 00:16:38,665 [INFO]  Saved new best model at epoch 27 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-17 00:16:38,667 [INFO] Started epoch 28
+2025-04-17 01:14:51,325 [INFO] [Epoch 28] Train Loss: 0.0454, Val Loss: 3.7956, LR: 0.000003
+2025-04-17 01:14:51,327 [INFO]  Epoch time: 3492.66 sec
+2025-04-17 01:14:52,527 [INFO]  Saved new best model at epoch 28 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-17 01:14:52,529 [INFO] Started epoch 29
+2025-04-17 02:13:09,630 [INFO] [Epoch 29] Train Loss: 0.0369, Val Loss: 3.7842, LR: 0.000002
+2025-04-17 02:13:09,632 [INFO]  Epoch time: 3497.10 sec
+2025-04-17 02:13:10,694 [INFO]  Saved new best model at epoch 29 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-17 02:13:10,695 [INFO] Started epoch 30
+2025-04-17 03:11:02,700 [INFO] [Epoch 30] Train Loss: 0.0360, Val Loss: 3.7826, LR: 0.000001
+2025-04-17 03:11:02,702 [INFO]  Epoch time: 3472.01 sec
+2025-04-17 03:11:03,968 [INFO]  Saved new best model at epoch 30 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-15_eca_nfnet_l1_arcface_batchz_32_embdim_256_e_30_imgprcls_4_pixels_288/trained_model_arcface.pth
+2025-04-17 03:11:03,969 [INFO] Training completed. Starting evaluation...
+2025-04-17 04:14:40,369 [INFO] Evaluation completed successfully
