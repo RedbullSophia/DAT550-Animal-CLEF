@@ -25,10 +25,12 @@ python -u ../model/arg_run.py \
   --val_split 0.2 \
   --weight_decay 5e-5 \
   --dropout 0.3 \
-  --scheduler cosine \
+  --scheduler none \
   --patience 10 \
   --augmentation \
   --embedding_dim 512 \
   --margin 0.3 \
-  --scale 30.0 \
+  --scale 64.0 \
   --loss_type arcface
+  --filename noscheduler
+

@@ -32,4 +32,4 @@ python -u ../model/arg_run.py \
   --margin 0.3 \
   --scale 64.0 \
   --loss_type arcface
-
+  --filename dropoutfrom0.3to0.1

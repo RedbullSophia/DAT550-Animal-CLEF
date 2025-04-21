@@ -15,7 +15,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 python -u ../model/arg_run.py \
   --remote \
-  --batch_size 32 \
+  --batch_size 16 \
   --num_epochs 30 \
   --lr 0.0001 \
   --m 4 \
@@ -32,3 +32,4 @@ python -u ../model/arg_run.py \
   --margin 0.3 \
   --scale 64.0 \
   --loss_type arcface
+  --name resize288to384batchsize32to16
