@@ -2,8 +2,8 @@
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
 #SBATCH --time=47:15:00
-#SBATCH --job-name=train4
-#SBATCH --output=train4.out
+#SBATCH --job-name=train6
+#SBATCH --output=train6.out
 
 # Set up environment
 uenv verbose cuda-11.4.4 cudnn-11.x-8.8.0
@@ -25,11 +25,10 @@ python -u ../model/arg_run.py \
   --val_split 0.2 \
   --weight_decay 5e-5 \
   --dropout 0.3 \
-  --scheduler plateau \
+  --scheduler cosine \
   --patience 10 \
-  --augmentation \
   --embedding_dim 512 \
   --margin 0.3 \
   --scale 64.0 \
   --loss_type arcface\
-  --filename resnet18plateauscheduler
+  --filename resnet18noaugmentation
