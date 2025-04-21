@@ -286,6 +286,14 @@ def visualize_distance_distributions(distances, query_original_ids, gallery_orig
     plt.savefig(os.path.join(save_path, 'distance_distributions.png'), dpi=200)
     plt.close()
 
+def create_sample_submission(dataset_query, predictions, file_name='sample_submission.csv'):
+    """Create a submission CSV file with image IDs and predicted identities"""
+    df = pd.DataFrame({
+        'image_id': dataset_query.metadata['image_id'],
+        'identity': predictions
+    })
+    df.to_csv(file_name, index=False)
+
 def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_path, backbone_name, embedding_dim, threshold=None, loss_type="arcface"):
     """Evaluate ReID model for open-set recognition"""
     # Load model
@@ -333,6 +341,9 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
             # Predict as the closest gallery identity
             predictions.append(gallery_original_ids[min_idx])
     
+    # Create sample submission file
+    create_sample_submission(query_loader.dataset, predictions, os.path.join(save_path, 'sample_submission.csv'))
+    
     # Calculate BAKS and BAUS
     baks_score = BAKS(query_original_ids, predictions, identity_test_only)
     baus_score = BAUS(query_original_ids, predictions, identity_test_only, "new_individual")
@@ -367,19 +378,23 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     plt.savefig(os.path.join(save_path, 'known_unknown_confusion.png'))
     plt.close()
     
-    # Save metrics
-    metrics = {
-        "BAKS": float(baks_score),
-        "BAUS": float(baus_score),
-        "geometric_mean": float(geometric_mean),
-        "threshold": float(threshold),
-        "backbone": backbone_name,
-        "loss_type": loss_type,
-        "evaluation_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    }
+    # Load existing metrics CSV
+    metrics_csv_path = os.path.join(os.path.dirname(save_path), 'model_metrics.csv')
+    if os.path.exists(metrics_csv_path):
+        df = pd.read_csv(metrics_csv_path)
+    else:
+        raise FileNotFoundError(f"Could not find metrics CSV at {metrics_csv_path}")
     
-    with open(os.path.join(save_path, 'open_set_metrics.json'), 'w') as f:
-        json.dump(metrics, f, indent=4)
+    # Add open set evaluation metrics
+    df['open_set_baks'] = baks_score
+    df['open_set_baus'] = baus_score
+    df['open_set_geometric_mean'] = geometric_mean
+    df['open_set_threshold'] = threshold
+    df['open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Save updated metrics
+    df.to_csv(metrics_csv_path, index=False)
+    print(f"Updated metrics saved to {metrics_csv_path}")
     
     return baks_score, baus_score, geometric_mean
 

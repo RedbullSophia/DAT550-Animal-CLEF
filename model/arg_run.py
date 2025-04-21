@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 import json
 import subprocess
 import sys  # Add this import
+import pandas as pd
 
 # Add new imports for data augmentation
 from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter, RandomResizedCrop
@@ -153,6 +154,35 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         if patience > 0 and no_improve_count >= patience:
             logging.info(f"Early stopping triggered after {epoch+1} epochs")
             break
+
+    # After training completes, save parameters and metrics to CSV
+    final_metrics = {
+        'filename': os.path.basename(save_path),
+        'final_train_loss': avg_train_loss,
+        'final_val_loss': avg_val_loss,
+        'backbone': args.backbone,
+        'batch_size': args.batch_size,
+        'num_epochs': args.num_epochs,
+        'learning_rate': args.lr,
+        'm': args.m,
+        'resize': args.resize,
+        'n': args.n,
+        'val_split': args.val_split,
+        'weight_decay': args.weight_decay,
+        'dropout': args.dropout,
+        'scheduler': args.scheduler,
+        'patience': args.patience,
+        'augmentation': args.augmentation,
+        'embedding_dim': args.embedding_dim,
+        'margin': args.margin,
+        'scale': args.scale,
+        'loss_type': args.loss_type
+    }
+    
+    # Save to CSV
+    metrics_csv_path = os.path.join(save_path, 'model_metrics.csv')
+    pd.DataFrame([final_metrics]).to_csv(metrics_csv_path, index=False)
+    logging.info(f"Saved training parameters and metrics to {metrics_csv_path}")
 
     # After training completes, run evaluation
     logging.info("Training completed. Starting evaluation...")
