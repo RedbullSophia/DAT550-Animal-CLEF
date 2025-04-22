@@ -181,13 +181,33 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         'open_set_baus': None,
         'open_set_geometric_mean': None,
         'open_set_threshold': None,
-        'open_set_evaluation_time': None
+        'open_set_evaluation_time': None,
+        'diff_final_train_loss': None,
+        'diff_final_val_loss': None,
+        'diff_open_set_baks': None,
+        'diff_open_set_baus': None,
+        'diff_open_set_geometric_mean': None,
+        'diff_open_set_threshold': None
     }
     
     # Save to CSV in model_data directory
     metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
     if os.path.exists(metrics_csv_path):
         df = pd.read_csv(metrics_csv_path)
+        
+        # Calculate differences if reference model is provided
+        if args.reference_model:
+            ref_row = df[df['filename'] == args.reference_model]
+            if not ref_row.empty:
+                ref_metrics = ref_row.iloc[0]
+                final_metrics['diff_final_train_loss'] = avg_train_loss - ref_metrics['final_train_loss']
+                final_metrics['diff_final_val_loss'] = avg_val_loss - ref_metrics['final_val_loss']
+                if not pd.isna(ref_metrics['open_set_baks']):
+                    final_metrics['diff_open_set_baks'] = None  # Will be updated during evaluation
+                    final_metrics['diff_open_set_baus'] = None
+                    final_metrics['diff_open_set_geometric_mean'] = None
+                    final_metrics['diff_open_set_threshold'] = None
+        
         df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
     else:
         df = pd.DataFrame([final_metrics])
@@ -238,7 +258,6 @@ if __name__ == "__main__":
     parser.add_argument("--n", type=int, default=1000, help="Number of training samples to use")
     parser.add_argument("--backbone", type=str, default="mobilenetv3_small_100", help="Backbone model name")
     parser.add_argument("--val_split", type=float, default=0.2, help="Validation split ratio")
-    # Add new arguments
     parser.add_argument("--weight_decay", type=float, default=1e-4, help="Weight decay for optimizer")
     parser.add_argument("--dropout", type=float, default=0.3, help="Dropout rate (0 to disable)")
     parser.add_argument("--scheduler", type=str, default="plateau", choices=["plateau", "cosine", "none"], help="LR scheduler type")
@@ -251,6 +270,7 @@ if __name__ == "__main__":
                        choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
                        help="Loss function to use for training")
     parser.add_argument("--filename", type=str, help="Name of file to store as")
+    parser.add_argument("--reference_model", type=str, help="Filename of the reference model to compare against")
 
     args = parser.parse_args()
 

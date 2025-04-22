@@ -398,6 +398,17 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
             df.loc[row_idx[0], 'open_set_threshold'] = threshold
             df.loc[row_idx[0], 'open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             
+            # Update difference columns if reference model is provided
+            if args.reference_model:
+                ref_row = df[df['filename'] == args.reference_model]
+                if not ref_row.empty:
+                    ref_metrics = ref_row.iloc[0]
+                    if not pd.isna(ref_metrics['open_set_baks']):
+                        df.loc[row_idx[0], 'diff_open_set_baks'] = baks_score - ref_metrics['open_set_baks']
+                        df.loc[row_idx[0], 'diff_open_set_baus'] = baus_score - ref_metrics['open_set_baus']
+                        df.loc[row_idx[0], 'diff_open_set_geometric_mean'] = geometric_mean - ref_metrics['open_set_geometric_mean']
+                        df.loc[row_idx[0], 'diff_open_set_threshold'] = threshold - ref_metrics['open_set_threshold']
+            
             # Save updated metrics
             df.to_csv(metrics_csv_path, index=False)
             print(f"Updated metrics saved to {metrics_csv_path}")
@@ -422,6 +433,7 @@ if __name__ == "__main__":
     parser.add_argument("--loss_type", type=str, default="arcface", 
                         choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
                         help="Loss function used for training")
+    parser.add_argument("--reference_model", type=str, help="Filename of the reference model to compare against")
     
     args = parser.parse_args()
     
