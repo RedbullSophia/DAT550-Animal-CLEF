@@ -382,7 +382,11 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     plt.close()
     
     # Load existing metrics CSV
-    metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
+    if args.remote:
+        metrics_csv_path = os.path.join('/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data', 'all_model_metrics.csv')
+    else:
+        metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
+        
     if not os.path.exists(metrics_csv_path):
         df = pd.DataFrame(columns=[
             'filename',
