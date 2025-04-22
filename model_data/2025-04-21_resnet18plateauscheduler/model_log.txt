@@ -1,0 +1,95 @@
+2025-04-21 09:29:03,595 [INFO] === TRAINING CONFIGURATION ===
+2025-04-21 09:29:03,596 [INFO] Backbone: resnet18
+2025-04-21 09:29:03,598 [INFO] Batch size: 32
+2025-04-21 09:29:03,600 [INFO] Epochs: 15
+2025-04-21 09:29:03,601 [INFO] Learning rate: 0.0001
+2025-04-21 09:29:03,602 [INFO] Images per class (M): 4
+2025-04-21 09:29:03,604 [INFO] Image size: 288x288
+2025-04-21 09:29:03,605 [INFO] Dataset size (n): 140000
+2025-04-21 09:29:03,606 [INFO] Validation split: 0.2
+2025-04-21 09:29:03,608 [INFO] Weight decay: 5e-05
+2025-04-21 09:29:03,609 [INFO] Dropout rate: 0.3
+2025-04-21 09:29:03,610 [INFO] Scheduler: plateau
+2025-04-21 09:29:03,612 [INFO] Early stopping patience: 10
+2025-04-21 09:29:03,613 [INFO] Data augmentation: True
+2025-04-21 09:29:03,614 [INFO] Embedding dimension: 512
+2025-04-21 09:29:03,616 [INFO] Loss type: arcface
+2025-04-21 09:29:03,617 [INFO] Margin: 0.3
+2025-04-21 09:29:03,619 [INFO] Scale: 64.0
+2025-04-21 09:29:03,620 [INFO] =============================
+2025-04-21 09:29:03,749 [INFO] Using device: cuda
+2025-04-21 09:29:03,751 [INFO] Using remote paths
+2025-04-21 09:29:03,753 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-21 09:29:03,754 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/
+2025-04-21 09:29:03,807 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-21 09:29:03,809 [INFO] Using data augmentation
+2025-04-21 09:29:03,810 [INFO] Loading dataset...
+2025-04-21 09:29:04,520 [INFO] PyTorch version 2.6.0 available.
+2025-04-21 09:29:11,272 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-21 09:29:11,481 [INFO] Loading pretrained weights from Hugging Face hub (timm/resnet18.a1_in1k)
+2025-04-21 09:29:11,663 [INFO] [timm/resnet18.a1_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-21 09:29:12,510 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-21 09:29:12,561 [INFO] Using ReduceLROnPlateau scheduler
+2025-04-21 09:29:12,562 [INFO] Started epoch 1
+2025-04-21 10:21:16,541 [INFO] [Epoch 1] Train Loss: 12.1225, Val Loss: 11.5065, LR: 0.000100
+2025-04-21 10:21:16,542 [INFO]  Epoch time: 3123.98 sec
+2025-04-21 10:21:17,569 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 10:21:17,570 [INFO] Started epoch 2
+2025-04-21 11:13:42,041 [INFO] [Epoch 2] Train Loss: 11.5504, Val Loss: 11.2434, LR: 0.000100
+2025-04-21 11:13:42,043 [INFO]  Epoch time: 3144.47 sec
+2025-04-21 11:13:42,835 [INFO]  Saved new best model at epoch 2 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 11:13:42,837 [INFO] Started epoch 3
+2025-04-21 12:04:45,179 [INFO] [Epoch 3] Train Loss: 11.3229, Val Loss: 10.9725, LR: 0.000100
+2025-04-21 12:04:45,181 [INFO]  Epoch time: 3062.34 sec
+2025-04-21 12:04:46,118 [INFO]  Saved new best model at epoch 3 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 12:04:46,120 [INFO] Started epoch 4
+2025-04-21 12:57:31,040 [INFO] [Epoch 4] Train Loss: 11.0693, Val Loss: 10.6105, LR: 0.000100
+2025-04-21 12:57:31,042 [INFO]  Epoch time: 3164.92 sec
+2025-04-21 12:57:31,926 [INFO]  Saved new best model at epoch 4 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 12:57:31,928 [INFO] Started epoch 5
+2025-04-21 13:48:59,989 [INFO] [Epoch 5] Train Loss: 10.7491, Val Loss: 10.1785, LR: 0.000100
+2025-04-21 13:48:59,991 [INFO]  Epoch time: 3088.06 sec
+2025-04-21 13:49:00,948 [INFO]  Saved new best model at epoch 5 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 13:49:00,949 [INFO] Started epoch 6
+2025-04-21 14:40:48,436 [INFO] [Epoch 6] Train Loss: 10.3378, Val Loss: 9.6751, LR: 0.000100
+2025-04-21 14:40:48,438 [INFO]  Epoch time: 3107.49 sec
+2025-04-21 14:40:49,169 [INFO]  Saved new best model at epoch 6 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 14:40:49,170 [INFO] Started epoch 7
+2025-04-21 15:32:51,593 [INFO] [Epoch 7] Train Loss: 9.8565, Val Loss: 9.2220, LR: 0.000100
+2025-04-21 15:32:51,595 [INFO]  Epoch time: 3122.42 sec
+2025-04-21 15:32:52,353 [INFO]  Saved new best model at epoch 7 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 15:32:52,355 [INFO] Started epoch 8
+2025-04-21 16:24:55,282 [INFO] [Epoch 8] Train Loss: 9.3885, Val Loss: 8.8353, LR: 0.000100
+2025-04-21 16:24:55,284 [INFO]  Epoch time: 3122.93 sec
+2025-04-21 16:24:56,074 [INFO]  Saved new best model at epoch 8 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 16:24:56,076 [INFO] Started epoch 9
+2025-04-21 17:16:46,191 [INFO] [Epoch 9] Train Loss: 8.9577, Val Loss: 8.5625, LR: 0.000100
+2025-04-21 17:16:46,194 [INFO]  Epoch time: 3110.12 sec
+2025-04-21 17:16:47,037 [INFO]  Saved new best model at epoch 9 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 17:16:47,039 [INFO] Started epoch 10
+2025-04-21 18:07:45,766 [INFO] [Epoch 10] Train Loss: 8.5306, Val Loss: 8.3175, LR: 0.000100
+2025-04-21 18:07:45,768 [INFO]  Epoch time: 3058.73 sec
+2025-04-21 18:07:46,529 [INFO]  Saved new best model at epoch 10 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 18:07:46,531 [INFO] Started epoch 11
+2025-04-21 18:59:28,946 [INFO] [Epoch 11] Train Loss: 8.1338, Val Loss: 8.1089, LR: 0.000100
+2025-04-21 18:59:28,948 [INFO]  Epoch time: 3102.42 sec
+2025-04-21 18:59:29,710 [INFO]  Saved new best model at epoch 11 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 18:59:29,711 [INFO] Started epoch 12
+2025-04-21 19:51:14,158 [INFO] [Epoch 12] Train Loss: 7.7893, Val Loss: 7.9050, LR: 0.000100
+2025-04-21 19:51:14,159 [INFO]  Epoch time: 3104.45 sec
+2025-04-21 19:51:14,827 [INFO]  Saved new best model at epoch 12 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 19:51:14,828 [INFO] Started epoch 13
+2025-04-21 20:42:55,661 [INFO] [Epoch 13] Train Loss: 7.4648, Val Loss: 7.6996, LR: 0.000100
+2025-04-21 20:42:55,663 [INFO]  Epoch time: 3100.83 sec
+2025-04-21 20:42:56,338 [INFO]  Saved new best model at epoch 13 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 20:42:56,339 [INFO] Started epoch 14
+2025-04-21 21:34:53,758 [INFO] [Epoch 14] Train Loss: 7.1620, Val Loss: 7.5962, LR: 0.000100
+2025-04-21 21:34:53,759 [INFO]  Epoch time: 3117.42 sec
+2025-04-21 21:34:54,755 [INFO]  Saved new best model at epoch 14 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 21:34:54,757 [INFO] Started epoch 15
+2025-04-21 22:28:25,955 [INFO] [Epoch 15] Train Loss: 6.8726, Val Loss: 7.4399, LR: 0.000100
+2025-04-21 22:28:25,957 [INFO]  Epoch time: 3211.20 sec
+2025-04-21 22:28:27,203 [INFO]  Saved new best model at epoch 15 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth
+2025-04-21 22:28:27,205 [INFO] Training completed. Starting evaluation...
+2025-04-21 23:24:17,506 [ERROR] Evaluation failed: Command '['/opt/miniconda3-py311/bin/python', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py', '--model_path', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth', '--backbone', 'resnet18', '--embedding_dim', '512', '--batch_size', '32', '--resize', '288', '--output_dir', '/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/open_set_evaluation', '--loss_type', 'arcface', '--remote']' returned non-zero exit status 1.
+2025-04-21 23:24:17,508 [ERROR] Failed command: /opt/miniconda3-py311/bin/python /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py --model_path /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/trained_model_arcface.pth --backbone resnet18 --embedding_dim 512 --batch_size 32 --resize 288 --output_dir /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/2025-04-21_resnet18plateauscheduler/open_set_evaluation --loss_type arcface --remote

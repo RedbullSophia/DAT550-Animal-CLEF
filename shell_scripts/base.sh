@@ -2,8 +2,8 @@
 #SBATCH --gres=gpu:0
 #SBATCH --partition=gpu
 #SBATCH --time=47:15:00
-#SBATCH --job-name=train1
-#SBATCH --output=train1.out
+#SBATCH --job-name=base
+#SBATCH --output=base.out
 
 # Set up environment
 uenv verbose cuda-11.4.4 cudnn-11.x-8.8.0
