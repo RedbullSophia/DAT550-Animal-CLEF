@@ -191,48 +191,49 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     }
     
     # Save to CSV in model_data directory
+    required_columns = [
+        # Primary identifier and difference columns first
+        'filename',
+        'diff_final_train_loss',
+        'diff_final_val_loss',
+        'diff_open_set_baks',
+        'diff_open_set_baus',
+        'diff_open_set_geometric_mean',
+        'diff_open_set_threshold',
+        # Training metrics
+        'final_train_loss',
+        'final_val_loss',
+        # Evaluation metrics
+        'open_set_baks',
+        'open_set_baus',
+        'open_set_geometric_mean',
+        'open_set_threshold',
+        'open_set_evaluation_time'
+        # Model parameters
+        'backbone',
+        'batch_size',
+        'num_epochs',
+        'learning_rate',
+        'm',
+        'resize',
+        'n',
+        'val_split',
+        'weight_decay',
+        'dropout',
+        'scheduler',
+        'patience',
+        'augmentation',
+        'embedding_dim',
+        'margin',
+        'scale',
+        'loss_type',
+    ]
+    
     metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
     if os.path.exists(metrics_csv_path):
         df = pd.read_csv(metrics_csv_path)
         
         # Ensure all required columns exist
-        required_columns = [
-            # Primary identifier and difference columns first
-            'filename',
-            'diff_final_train_loss',
-            'diff_final_val_loss',
-            'diff_open_set_baks',
-            'diff_open_set_baus',
-            'diff_open_set_geometric_mean',
-            'diff_open_set_threshold',
-            # Training metrics
-            'final_train_loss',
-            'final_val_loss',
-            # Evaluation metrics
-            'open_set_baks',
-            'open_set_baus',
-            'open_set_geometric_mean',
-            'open_set_threshold',
-            'open_set_evaluation_time'
-            # Model parameters
-            'backbone',
-            'batch_size',
-            'num_epochs',
-            'learning_rate',
-            'm',
-            'resize',
-            'n',
-            'val_split',
-            'weight_decay',
-            'dropout',
-            'scheduler',
-            'patience',
-            'augmentation',
-            'embedding_dim',
-            'margin',
-            'scale',
-            'loss_type',
-        ]
         
         # Add any missing columns
         for col in required_columns:
