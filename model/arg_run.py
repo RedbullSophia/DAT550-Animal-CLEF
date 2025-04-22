@@ -379,41 +379,30 @@ if __name__ == "__main__":
             # Basic preprocessing
             transforms.Resize((args.resize, args.resize)),
             
-            # Color space adjustments
+            # Most impactful color augmentation
             transforms.ColorJitter(
-                brightness=0.3,  # Increased from 0.2
-                contrast=0.3,    # Increased from 0.2
-                saturation=0.3,  # Increased from 0.2
+                brightness=0.2,  # Reduced from 0.3
+                contrast=0.2,    # Reduced from 0.3
+                saturation=0.2,  # Reduced from 0.3
                 hue=0.1
             ),
             
-            # Geometric transformations
+            # Essential geometric transformations
             transforms.RandomHorizontalFlip(p=0.5),
-            transforms.RandomRotation(degrees=15),
-            transforms.RandomAffine(
-                degrees=0,
-                translate=(0.1, 0.1),  # Random translation
-                scale=(0.9, 1.1)      # Random scaling
-            ),
-            
-            # Noise and blur handling
-            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 2.0)),
-            
-            # Edge enhancement
-            transforms.RandomAdjustSharpness(sharpness_factor=2),
+            transforms.RandomRotation(degrees=10),  # Reduced from 15
             
             # Convert to tensor and normalize
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.486, 0.406], std=[0.229, 0.224, 0.225]),
             
-            # Background handling
+            # Most impactful tensor augmentation
             transforms.RandomErasing(
-                p=0.5,
-                scale=(0.02, 0.33),
+                p=0.3,  # Reduced from 0.5
+                scale=(0.02, 0.2),  # Reduced from 0.33
                 ratio=(0.3, 3.3)
             )
         ])
-        logging.info("Using enhanced data augmentation pipeline")
+        logging.info("Using optimized data augmentation pipeline")
     else:
         transform = transforms.Compose([
             # Basic preprocessing without augmentation
