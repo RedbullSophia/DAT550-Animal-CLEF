@@ -191,6 +191,12 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     }
     
     # Save to CSV in model_data directory
+    if args.remote:
+        metrics_csv_path = os.path.join('/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data', 'all_model_metrics.csv')
+    else:
+        metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
+    
+    # Define required columns
     required_columns = [
         # Primary identifier and difference columns first
         'filename',
@@ -208,7 +214,7 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         'open_set_baus',
         'open_set_geometric_mean',
         'open_set_threshold',
-        'open_set_evaluation_time'
+        'open_set_evaluation_time',
         # Model parameters
         'backbone',
         'batch_size',
@@ -226,14 +232,11 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         'embedding_dim',
         'margin',
         'scale',
-        'loss_type',
+        'loss_type'
     ]
     
-    metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
     if os.path.exists(metrics_csv_path):
         df = pd.read_csv(metrics_csv_path)
-        
-        # Ensure all required columns exist
         
         # Add any missing columns
         for col in required_columns:
@@ -242,16 +245,19 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         
         # Reorder columns
         df = df[required_columns]
-        
-        # Calculate differences if reference model is provided
-        if args.reference_model:
-            ref_row = df[df['filename'] == args.reference_model]
-            if not ref_row.empty:
-                ref_metrics = ref_row.iloc[0]
-                final_metrics['diff_final_train_loss'] = round(float(avg_train_loss - ref_metrics['final_train_loss']), 4)
-                final_metrics['diff_final_val_loss'] = round(float(avg_val_loss - ref_metrics['final_val_loss']), 4)
     else:
+        # Create new DataFrame with all required columns initialized to None
         df = pd.DataFrame(columns=required_columns)
+        for col in required_columns:
+            df[col] = None
+    
+    # Calculate differences if reference model is provided
+    if args.reference_model:
+        ref_row = df[df['filename'] == args.reference_model]
+        if not ref_row.empty:
+            ref_metrics = ref_row.iloc[0]
+            final_metrics['diff_final_train_loss'] = round(float(avg_train_loss - ref_metrics['final_train_loss']), 4)
+            final_metrics['diff_final_val_loss'] = round(float(avg_val_loss - ref_metrics['final_val_loss']), 4)
     
     df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
     df.to_csv(metrics_csv_path, index=False)
