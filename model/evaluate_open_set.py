@@ -383,8 +383,6 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     
     # Load existing metrics CSV
     metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
-    
-    # Create empty DataFrame with all required columns if file doesn't exist
     if not os.path.exists(metrics_csv_path):
         df = pd.DataFrame(columns=[
             'filename',

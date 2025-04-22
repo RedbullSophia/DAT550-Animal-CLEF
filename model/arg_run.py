@@ -158,8 +158,8 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     # After training completes, save parameters and metrics to CSV
     final_metrics = {
         'filename': os.path.basename(save_path),
-        'final_train_loss': avg_train_loss,
-        'final_val_loss': avg_val_loss,
+        'final_train_loss': round(avg_train_loss, 4),
+        'final_val_loss': round(avg_val_loss, 4),
         'backbone': args.backbone,
         'batch_size': args.batch_size,
         'num_epochs': args.num_epochs,
@@ -195,23 +195,64 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     if os.path.exists(metrics_csv_path):
         df = pd.read_csv(metrics_csv_path)
         
+        # Ensure all required columns exist
+        required_columns = [
+            # Primary identifier and difference columns first
+            'filename',
+            'diff_final_train_loss',
+            'diff_final_val_loss',
+            'diff_open_set_baks',
+            'diff_open_set_baus',
+            'diff_open_set_geometric_mean',
+            'diff_open_set_threshold',
+            # Training metrics
+            'final_train_loss',
+            'final_val_loss',
+            # Evaluation metrics
+            'open_set_baks',
+            'open_set_baus',
+            'open_set_geometric_mean',
+            'open_set_threshold',
+            'open_set_evaluation_time'
+            # Model parameters
+            'backbone',
+            'batch_size',
+            'num_epochs',
+            'learning_rate',
+            'm',
+            'resize',
+            'n',
+            'val_split',
+            'weight_decay',
+            'dropout',
+            'scheduler',
+            'patience',
+            'augmentation',
+            'embedding_dim',
+            'margin',
+            'scale',
+            'loss_type',
+        ]
+        
+        # Add any missing columns
+        for col in required_columns:
+            if col not in df.columns:
+                df[col] = None
+        
+        # Reorder columns
+        df = df[required_columns]
+        
         # Calculate differences if reference model is provided
         if args.reference_model:
             ref_row = df[df['filename'] == args.reference_model]
             if not ref_row.empty:
                 ref_metrics = ref_row.iloc[0]
-                final_metrics['diff_final_train_loss'] = avg_train_loss - ref_metrics['final_train_loss']
-                final_metrics['diff_final_val_loss'] = avg_val_loss - ref_metrics['final_val_loss']
-                if not pd.isna(ref_metrics['open_set_baks']):
-                    final_metrics['diff_open_set_baks'] = None  # Will be updated during evaluation
-                    final_metrics['diff_open_set_baus'] = None
-                    final_metrics['diff_open_set_geometric_mean'] = None
-                    final_metrics['diff_open_set_threshold'] = None
-        
-        df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
+                final_metrics['diff_final_train_loss'] = round(float(avg_train_loss - ref_metrics['final_train_loss']), 4)
+                final_metrics['diff_final_val_loss'] = round(float(avg_val_loss - ref_metrics['final_val_loss']), 4)
     else:
-        df = pd.DataFrame([final_metrics])
+        df = pd.DataFrame(columns=required_columns)
     
+    df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
     df.to_csv(metrics_csv_path, index=False)
     logging.info(f"Saved training parameters and metrics to {metrics_csv_path}")
 
@@ -228,7 +269,8 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         "--batch_size", str(args.batch_size),
         "--resize", str(args.resize),
         "--output_dir", os.path.join(save_path, "open_set_evaluation"),
-        "--loss_type", loss_type  # Add loss type to evaluation command
+        "--loss_type", loss_type,
+        "--reference_model", args.reference_model
     ]
     
     # Add remote flag if needed
