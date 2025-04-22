@@ -519,11 +519,11 @@ if __name__ == "__main__":
         transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 2.0)),
         # Edge enhancement
         transforms.RandomAdjustSharpness(sharpness_factor=2),
-        # Background handling
-        transforms.RandomErasing(p=0.5, scale=(0.02, 0.33), ratio=(0.3, 3.3)),
         # Basic preprocessing
         transforms.Resize((args.resize, args.resize)),
         transforms.ToTensor(),
+        # Background handling - moved after ToTensor()
+        transforms.RandomErasing(p=0.5, scale=(0.02, 0.33), ratio=(0.3, 3.3)),
         transforms.Normalize(mean=[0.485, 0.486, 0.406], std=[0.229, 0.224, 0.225])
     ])
     
