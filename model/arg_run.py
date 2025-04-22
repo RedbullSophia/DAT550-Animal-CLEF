@@ -276,13 +276,16 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         "--batch_size", str(args.batch_size),
         "--resize", str(args.resize),
         "--output_dir", os.path.join(save_path, "open_set_evaluation"),
-        "--loss_type", loss_type,
-        "--reference_model", args.reference_model
+        "--loss_type", loss_type
     ]
     
     # Add remote flag if needed
     if args.remote:
         eval_cmd.append("--remote")
+    
+    # Add reference model if provided
+    if args.reference_model:
+        eval_cmd.extend(["--reference_model", args.reference_model])
     
     # Run evaluation
     try:
