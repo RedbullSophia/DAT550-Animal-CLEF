@@ -66,7 +66,7 @@ def BAKS(y_true, y_pred, identity_test_only):
     accuracy = 0
     for _, df_identity in df.groupby('y_true'):
         accuracy += 1 / df['y_true'].nunique() * np.mean(df_identity['y_pred'] == df_identity['y_true'])
-    return accuracy
+    return round(float(accuracy), 4)
 
 def BAUS(y_true, y_pred, identity_test_only, new_class):
     """Computes BAUS (balanced accuracy on unknown samples)."""
@@ -88,7 +88,7 @@ def BAUS(y_true, y_pred, identity_test_only, new_class):
     accuracy = 0
     for _, df_identity in df.groupby('y_true'):
         accuracy += 1 / df['y_true'].nunique() * np.mean(df_identity['y_pred'] == new_class)
-    return accuracy
+    return round(float(accuracy), 4)
 
 def extract_embeddings(model, dataloader, device):
     """Extract embeddings for all images in the dataloader"""
@@ -169,10 +169,10 @@ def find_optimal_threshold(distances, query_original_ids, gallery_original_ids, 
             baus_score = 0
         
         # Calculate geometric mean
-        geometric_mean = np.sqrt(baks_score * baus_score)
+        geometric_mean = round(float(np.sqrt(baks_score * baus_score)), 4)
         
         results.append({
-            'threshold': threshold,
+            'threshold': round(float(threshold), 4),
             'baks': baks_score,
             'baus': baus_score,
             'geometric_mean': geometric_mean
@@ -180,7 +180,7 @@ def find_optimal_threshold(distances, query_original_ids, gallery_original_ids, 
         
         if geometric_mean > best_score:
             best_score = geometric_mean
-            best_threshold = threshold
+            best_threshold = round(float(threshold), 4)
     
     # Create a plot of threshold vs. metrics
     results_df = pd.DataFrame(results)
@@ -188,7 +188,7 @@ def find_optimal_threshold(distances, query_original_ids, gallery_original_ids, 
     plt.plot(results_df['threshold'], results_df['baks'], label='BAKS')
     plt.plot(results_df['threshold'], results_df['baus'], label='BAUS')
     plt.plot(results_df['threshold'], results_df['geometric_mean'], label='Geometric Mean')
-    plt.axvline(x=best_threshold, color='r', linestyle='--', label=f'Best Threshold: {best_threshold:.3f}')
+    plt.axvline(x=best_threshold, color='r', linestyle='--', label=f'Best Threshold: {best_threshold:.4f}')
     plt.xlabel('Threshold')
     plt.ylabel('Score')
     plt.title('Threshold Optimization')
@@ -357,7 +357,7 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     if np.isnan(baus_score):
         baus_score = 0
     
-    geometric_mean = np.sqrt(baks_score * baus_score)
+    geometric_mean = round(float(np.sqrt(baks_score * baus_score)), 4)
     
     # Print metrics
     print(f"BAKS (Known Accuracy): {baks_score:.4f}")
@@ -383,39 +383,96 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     
     # Load existing metrics CSV
     metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
-    if os.path.exists(metrics_csv_path):
-        df = pd.read_csv(metrics_csv_path)
-        
-        # Find the row with matching filename
-        model_dir = os.path.basename(os.path.dirname(save_path))
-        row_idx = df[df['filename'] == model_dir].index
-        
-        if len(row_idx) > 0:
-            # Update the row with open set evaluation metrics
-            df.loc[row_idx[0], 'open_set_baks'] = baks_score
-            df.loc[row_idx[0], 'open_set_baus'] = baus_score
-            df.loc[row_idx[0], 'open_set_geometric_mean'] = geometric_mean
-            df.loc[row_idx[0], 'open_set_threshold'] = threshold
-            df.loc[row_idx[0], 'open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            
-            # Update difference columns if reference model is provided
-            if args.reference_model:
-                ref_row = df[df['filename'] == args.reference_model]
-                if not ref_row.empty:
-                    ref_metrics = ref_row.iloc[0]
-                    if not pd.isna(ref_metrics['open_set_baks']):
-                        df.loc[row_idx[0], 'diff_open_set_baks'] = baks_score - ref_metrics['open_set_baks']
-                        df.loc[row_idx[0], 'diff_open_set_baus'] = baus_score - ref_metrics['open_set_baus']
-                        df.loc[row_idx[0], 'diff_open_set_geometric_mean'] = geometric_mean - ref_metrics['open_set_geometric_mean']
-                        df.loc[row_idx[0], 'diff_open_set_threshold'] = threshold - ref_metrics['open_set_threshold']
-            
-            # Save updated metrics
-            df.to_csv(metrics_csv_path, index=False)
-            print(f"Updated metrics saved to {metrics_csv_path}")
-        else:
-            print(f"Warning: Could not find matching model entry in {metrics_csv_path}")
+    
+    # Create empty DataFrame with all required columns if file doesn't exist
+    if not os.path.exists(metrics_csv_path):
+        df = pd.DataFrame(columns=[
+            'filename',
+            'final_train_loss',
+            'final_val_loss',
+            'backbone',
+            'batch_size',
+            'num_epochs',
+            'learning_rate',
+            'm',
+            'resize',
+            'n',
+            'val_split',
+            'weight_decay',
+            'dropout',
+            'scheduler',
+            'patience',
+            'augmentation',
+            'embedding_dim',
+            'margin',
+            'scale',
+            'loss_type',
+            'open_set_baks',
+            'open_set_baus',
+            'open_set_geometric_mean',
+            'open_set_threshold',
+            'open_set_evaluation_time',
+            'diff_final_train_loss',
+            'diff_final_val_loss',
+            'diff_open_set_baks',
+            'diff_open_set_baus',
+            'diff_open_set_geometric_mean',
+            'diff_open_set_threshold'
+        ])
+        df.to_csv(metrics_csv_path, index=False)
+        print(f"Created new metrics CSV at {metrics_csv_path}")
     else:
-        print(f"Warning: Could not find metrics CSV at {metrics_csv_path}")
+        df = pd.read_csv(metrics_csv_path)
+    
+    # Find the row with matching filename
+    model_dir = os.path.basename(os.path.dirname(save_path))
+    row_idx = df[df['filename'] == model_dir].index
+    
+    if len(row_idx) > 0:
+        # Update the row with open set evaluation metrics
+        df.loc[row_idx[0], 'open_set_baks'] = baks_score
+        df.loc[row_idx[0], 'open_set_baus'] = baus_score
+        df.loc[row_idx[0], 'open_set_geometric_mean'] = geometric_mean
+        df.loc[row_idx[0], 'open_set_threshold'] = threshold
+        df.loc[row_idx[0], 'open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Update difference columns if reference model is provided
+        if args.reference_model:
+            ref_row = df[df['filename'] == args.reference_model]
+            if not ref_row.empty:
+                ref_metrics = ref_row.iloc[0]
+                if not pd.isna(ref_metrics['open_set_baks']):
+                    df.loc[row_idx[0], 'diff_open_set_baks'] = round(float(baks_score - ref_metrics['open_set_baks']), 4)
+                    df.loc[row_idx[0], 'diff_open_set_baus'] = round(float(baus_score - ref_metrics['open_set_baus']), 4)
+                    df.loc[row_idx[0], 'diff_open_set_geometric_mean'] = round(float(geometric_mean - ref_metrics['open_set_geometric_mean']), 4)
+                    df.loc[row_idx[0], 'diff_open_set_threshold'] = round(float(threshold - ref_metrics['open_set_threshold']), 4)
+    else:
+        # Create new row if model doesn't exist in CSV
+        new_row = {
+            'filename': model_dir,
+            'open_set_baks': baks_score,
+            'open_set_baus': baus_score,
+            'open_set_geometric_mean': geometric_mean,
+            'open_set_threshold': threshold,
+            'open_set_evaluation_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        
+        # Add difference columns if reference model is provided
+        if args.reference_model:
+            ref_row = df[df['filename'] == args.reference_model]
+            if not ref_row.empty:
+                ref_metrics = ref_row.iloc[0]
+                if not pd.isna(ref_metrics['open_set_baks']):
+                    new_row['diff_open_set_baks'] = round(float(baks_score - ref_metrics['open_set_baks']), 4)
+                    new_row['diff_open_set_baus'] = round(float(baus_score - ref_metrics['open_set_baus']), 4)
+                    new_row['diff_open_set_geometric_mean'] = round(float(geometric_mean - ref_metrics['open_set_geometric_mean']), 4)
+                    new_row['diff_open_set_threshold'] = round(float(threshold - ref_metrics['open_set_threshold']), 4)
+        
+        df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+    
+    # Save updated metrics
+    df.to_csv(metrics_csv_path, index=False)
+    print(f"Updated metrics saved to {metrics_csv_path}")
     
     return baks_score, baus_score, geometric_mean
 

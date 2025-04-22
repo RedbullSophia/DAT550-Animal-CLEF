@@ -1,0 +1,8 @@
+filename,final_train_loss,final_val_loss,backbone,batch_size,num_epochs,learning_rate,m,resize,n,val_split,weight_decay,dropout,scheduler,patience,augmentation,embedding_dim,margin,scale,loss_type,diff_final_train_loss,diff_final_val_loss
+2025-04-21_resnet18basemodel,8.4358,8.5196,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,0.0,0.0
+2025-04-21_resnet18batchsize32to16,8.1671,8.4955,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,-0.2687,-0.0241
+2025-04-21_resnet18noaugmentation,6.5306,8.8974,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,-1.9052,0.3778
+2025-04-21_resnet18noscheduler,6.8605,7.4298,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,-1.5753,-1.0898
+2025-04-21_resnet18plateauscheduler,6.8726,7.4399,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,-1.5632,-1.0797
+2025-04-21_resnet18resize160,8.7358,8.8015,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,0.3,0.2819
+2025-04-21_resnet18resize210,8.5256,8.5226,resnet18,32,15,0.0001,4,288,140000,0.2,5e-05,0.3,cosine,10,True,512,0.3,64.0,arcface,0.0898,0.003
