@@ -19,7 +19,7 @@ python -u ../model/arg_run.py \
   --num_epochs 15 \
   --lr 0.0001 \
   --m 4 \
-  --resize 288 \
+  --resize 384 \
   --n 140000 \
   --backbone resnet18 \
   --val_split 0.2 \
@@ -32,4 +32,4 @@ python -u ../model/arg_run.py \
   --scale 64.0 \
   --loss_type arcface\
   --reference_model "2025-04-21_resnet18basemodel" \
-  --filename resnet18noaugmentation
+  --filename resnet18resize384
