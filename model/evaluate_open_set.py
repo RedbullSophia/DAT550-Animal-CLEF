@@ -288,8 +288,11 @@ def visualize_distance_distributions(distances, query_original_ids, gallery_orig
 
 def create_sample_submission(dataset_query, predictions, file_name='sample_submission.csv'):
     """Create a submission CSV file with image IDs and predicted identities"""
+    # Extract image IDs from the paths
+    image_ids = [os.path.basename(path).split('.')[0] for path in dataset_query.image_paths]
+
     df = pd.DataFrame({
-        'image_id': dataset_query.metadata['image_id'],
+        'image_id': image_ids,
         'identity': predictions
     })
     df.to_csv(file_name, index=False)
@@ -379,22 +382,29 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     plt.close()
     
     # Load existing metrics CSV
-    metrics_csv_path = os.path.join(os.path.dirname(save_path), 'model_metrics.csv')
+    metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
     if os.path.exists(metrics_csv_path):
         df = pd.read_csv(metrics_csv_path)
+        
+        # Find the row with matching filename
+        model_dir = os.path.basename(os.path.dirname(save_path))
+        row_idx = df[df['filename'] == model_dir].index
+        
+        if len(row_idx) > 0:
+            # Update the row with open set evaluation metrics
+            df.loc[row_idx[0], 'open_set_baks'] = baks_score
+            df.loc[row_idx[0], 'open_set_baus'] = baus_score
+            df.loc[row_idx[0], 'open_set_geometric_mean'] = geometric_mean
+            df.loc[row_idx[0], 'open_set_threshold'] = threshold
+            df.loc[row_idx[0], 'open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            
+            # Save updated metrics
+            df.to_csv(metrics_csv_path, index=False)
+            print(f"Updated metrics saved to {metrics_csv_path}")
+        else:
+            print(f"Warning: Could not find matching model entry in {metrics_csv_path}")
     else:
-        raise FileNotFoundError(f"Could not find metrics CSV at {metrics_csv_path}")
-    
-    # Add open set evaluation metrics
-    df['open_set_baks'] = baks_score
-    df['open_set_baus'] = baus_score
-    df['open_set_geometric_mean'] = geometric_mean
-    df['open_set_threshold'] = threshold
-    df['open_set_evaluation_time'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
-    # Save updated metrics
-    df.to_csv(metrics_csv_path, index=False)
-    print(f"Updated metrics saved to {metrics_csv_path}")
+        print(f"Warning: Could not find metrics CSV at {metrics_csv_path}")
     
     return baks_score, baus_score, geometric_mean
 
@@ -471,7 +481,6 @@ if __name__ == "__main__":
         num_workers=0,
         pin_memory=True
     )
-    
     # Evaluate
     evaluate_open_set(args.model_path, gallery_loader, query_loader, device, 
                      args.output_dir, args.backbone, args.embedding_dim, args.threshold, args.loss_type) 

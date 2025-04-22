@@ -176,12 +176,23 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
         'embedding_dim': args.embedding_dim,
         'margin': args.margin,
         'scale': args.scale,
-        'loss_type': args.loss_type
+        'loss_type': args.loss_type,
+        'open_set_baks': None,
+        'open_set_baus': None,
+        'open_set_geometric_mean': None,
+        'open_set_threshold': None,
+        'open_set_evaluation_time': None
     }
     
-    # Save to CSV
-    metrics_csv_path = os.path.join(save_path, 'model_metrics.csv')
-    pd.DataFrame([final_metrics]).to_csv(metrics_csv_path, index=False)
+    # Save to CSV in model_data directory
+    metrics_csv_path = os.path.join('model_data', 'all_model_metrics.csv')
+    if os.path.exists(metrics_csv_path):
+        df = pd.read_csv(metrics_csv_path)
+        df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
+    else:
+        df = pd.DataFrame([final_metrics])
+    
+    df.to_csv(metrics_csv_path, index=False)
     logging.info(f"Saved training parameters and metrics to {metrics_csv_path}")
 
     # After training completes, run evaluation
