@@ -27,6 +27,7 @@ python -u ../model/arg_run.py \
   --dropout 0.3 \
   --scheduler cosine \
   --patience 10 \
+  --augmentation \
   --embedding_dim 512 \
   --margin 0.3 \
   --scale 64.0 \
