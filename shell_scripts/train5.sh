@@ -32,5 +32,5 @@ python -u ../model/arg_run.py \
   --margin 0.3 \
   --scale 64.0 \
   --loss_type arcface\
-  --reference_model "2025-04-21_resnet18basemodel" \
+  --reference_model "resnet18basemodel" \
   --filename resnet18batchsize32to16

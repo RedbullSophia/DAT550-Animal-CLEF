@@ -143,7 +143,7 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
 
         if avg_val_loss < best_loss:
             best_loss = avg_val_loss
-            model_save_path = os.path.join(save_path, f"trained_model_{loss_type}.pth")
+            model_save_path = os.path.join(save_path, f"trained_model.pth")
             torch.save(model.state_dict(), model_save_path)
             logging.info(f" Saved new best model at epoch {epoch+1} to {model_save_path}")
             no_improve_count = 0
@@ -270,13 +270,14 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     eval_cmd = [
         sys.executable,  # Use the same Python interpreter
         "/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model/evaluate_open_set.py",
-        "--model_path", os.path.join(save_path, f"trained_model_{loss_type}.pth"),
+        "--model_path", os.path.join(save_path, f"trained_model.pth"),
         "--backbone", args.backbone,
         "--embedding_dim", str(args.embedding_dim),
         "--batch_size", str(args.batch_size),
         "--resize", str(args.resize),
         "--output_dir", os.path.join(save_path, "open_set_evaluation"),
-        "--loss_type", loss_type
+        "--loss_type", loss_type,
+        "--filename", args.filename
     ]
     
     # Add remote flag if needed
@@ -331,10 +332,10 @@ if __name__ == "__main__":
     # Set paths based on remote flag
     if args.remote:
         date_str = datetime.now().strftime("%Y-%m-%d")
-        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/{date_str}_{args.filename}/"
+        save_path = f"/home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/{args.filename}/"
         DATA_ROOT = '/home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
     else:
-        save_path = f"model_data/bb{args.backbone}_loss{args.loss_type}_bz{args.batch_size}_e{args.num_epochs}_lr{args.lr}_m{args.m}_r{args.resize}_n{args.n}/"
+        save_path = f"model_data/{args.filename}/"
         DATA_ROOT = 'C:/Users/trade/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6'
     
     os.makedirs(save_path, exist_ok=True)  # Ensure the directory exists

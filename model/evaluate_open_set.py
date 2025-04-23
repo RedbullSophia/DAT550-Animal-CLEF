@@ -427,8 +427,7 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
         df = pd.read_csv(metrics_csv_path)
     
     # Find the row with matching filename
-    model_dir = os.path.basename(os.path.dirname(save_path))
-    row_idx = df[df['filename'] == model_dir].index
+    row_idx = df[df['filename'] == args.filename].index
     
     if len(row_idx) > 0:
         # Update the row with open set evaluation metrics
@@ -451,7 +450,7 @@ def evaluate_open_set(model_path, gallery_loader, query_loader, device, save_pat
     else:
         # Create new row if model doesn't exist in CSV
         new_row = {
-            'filename': model_dir,
+            'filename': args.filename,
             'open_set_baks': baks_score,
             'open_set_baus': baus_score,
             'open_set_geometric_mean': geometric_mean,
@@ -493,6 +492,7 @@ if __name__ == "__main__":
                         choices=["arcface", "triplet", "contrastive", "multisimilarity", "cosface"], 
                         help="Loss function used for training")
     parser.add_argument("--reference_model", type=str, help="Filename of the reference model to compare against")
+    parser.add_argument("--filename", type=str, help="Filename of the model to update in the metrics CSV")
     
     args = parser.parse_args()
     
