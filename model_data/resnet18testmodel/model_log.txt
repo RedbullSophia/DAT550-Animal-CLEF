@@ -1,0 +1,39 @@
+2025-04-23 11:47:08,027 [INFO] === TRAINING CONFIGURATION ===
+2025-04-23 11:47:08,029 [INFO] Backbone: resnet18
+2025-04-23 11:47:08,030 [INFO] Batch size: 32
+2025-04-23 11:47:08,031 [INFO] Epochs: 1
+2025-04-23 11:47:08,032 [INFO] Learning rate: 0.0001
+2025-04-23 11:47:08,033 [INFO] Images per class (M): 4
+2025-04-23 11:47:08,035 [INFO] Image size: 288x288
+2025-04-23 11:47:08,036 [INFO] Dataset size (n): 2000
+2025-04-23 11:47:08,037 [INFO] Validation split: 0.2
+2025-04-23 11:47:08,039 [INFO] Weight decay: 5e-05
+2025-04-23 11:47:08,040 [INFO] Dropout rate: 0.3
+2025-04-23 11:47:08,041 [INFO] Scheduler: cosine
+2025-04-23 11:47:08,042 [INFO] Early stopping patience: 10
+2025-04-23 11:47:08,043 [INFO] Data augmentation: True
+2025-04-23 11:47:08,045 [INFO] Embedding dimension: 512
+2025-04-23 11:47:08,046 [INFO] Loss type: arcface
+2025-04-23 11:47:08,047 [INFO] Margin: 0.3
+2025-04-23 11:47:08,049 [INFO] Scale: 64.0
+2025-04-23 11:47:08,050 [INFO] =============================
+2025-04-23 11:47:08,165 [INFO] Using device: cuda
+2025-04-23 11:47:08,167 [INFO] Using remote paths
+2025-04-23 11:47:08,168 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-23 11:47:08,170 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18testmodel/
+2025-04-23 11:47:08,220 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-23 11:47:08,222 [INFO] Using optimized data augmentation pipeline
+2025-04-23 11:47:08,223 [INFO] Loading dataset...
+2025-04-23 11:47:09,102 [INFO] PyTorch version 2.6.0 available.
+2025-04-23 11:47:11,867 [INFO] Dataset split: 1270 training samples, 317 validation samples
+2025-04-23 11:47:12,026 [INFO] Loading pretrained weights from Hugging Face hub (timm/resnet18.a1_in1k)
+2025-04-23 11:47:12,230 [INFO] [timm/resnet18.a1_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-23 11:47:13,071 [INFO] Using ArcFace loss with margin=0.3, scale=64.0
+2025-04-23 11:47:13,073 [INFO] Using CosineAnnealingLR scheduler
+2025-04-23 11:47:13,075 [INFO] Started epoch 1
+2025-04-23 11:49:40,515 [INFO] [Epoch 1] Train Loss: 33.6030, Val Loss: 9.7447, LR: 0.000100
+2025-04-23 11:49:40,516 [INFO]  Epoch time: 147.44 sec
+2025-04-23 11:49:41,449 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18testmodel/trained_model.pth
+2025-04-23 11:49:41,484 [INFO] Saved training parameters and metrics to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/all_model_metrics.csv
+2025-04-23 11:49:41,486 [INFO] Training completed. Starting evaluation...
+2025-04-23 12:43:34,506 [INFO] Evaluation completed successfully
