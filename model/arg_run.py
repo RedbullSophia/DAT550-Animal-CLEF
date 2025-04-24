@@ -200,6 +200,7 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
     required_columns = [
         # Primary identifier and difference columns first
         'filename',
+        'reference',
         'diff_final_train_loss',
         'diff_final_val_loss',
         'diff_open_set_baks',
@@ -258,6 +259,9 @@ def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, s
             ref_metrics = ref_row.iloc[0]
             final_metrics['diff_final_train_loss'] = round(float(avg_train_loss - ref_metrics['final_train_loss']), 4)
             final_metrics['diff_final_val_loss'] = round(float(avg_val_loss - ref_metrics['final_val_loss']), 4)
+    
+    # Add reference model to metrics
+    final_metrics['reference'] = args.reference_model
     
     df = pd.concat([df, pd.DataFrame([final_metrics])], ignore_index=True)
     df.to_csv(metrics_csv_path, index=False)
