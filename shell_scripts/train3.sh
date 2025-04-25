@@ -16,21 +16,21 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 python -u ../model/arg_run.py \
   --remote \
   --batch_size 16 \
-  --num_epochs 15 \
+  --num_epochs 25 \
   --lr 0.0001 \
-  --m 4 \
+  --m 3 \
   --resize 210 \
   --n 140000 \
-  --backbone resnet18 \
+  --backbone resnet50 \
   --val_split 0.2 \
-  --weight_decay 5e-5 \
+  --weight_decay 1e-4 \
   --dropout 0.3 \
   --scheduler plateau \
   --patience 10 \
   --augmentation \
   --embedding_dim 512 \
-  --margin 0.1 \
-  --scale 64 \
+  --margin 0.5 \
+  --scale 64.0 \
   --loss_type arcface\
-  --reference_model "resnet18batchsize32to16" \
-  --filename resnet18margin01
+  --reference_model "r50base" \
+  --filename r50wdk1e4
