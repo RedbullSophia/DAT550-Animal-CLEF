@@ -1,0 +1,95 @@
+2025-04-24 12:30:00,220 [INFO] === TRAINING CONFIGURATION ===
+2025-04-24 12:30:00,221 [INFO] Backbone: resnet18
+2025-04-24 12:30:00,222 [INFO] Batch size: 16
+2025-04-24 12:30:00,223 [INFO] Epochs: 15
+2025-04-24 12:30:00,225 [INFO] Learning rate: 0.0001
+2025-04-24 12:30:00,226 [INFO] Images per class (M): 4
+2025-04-24 12:30:00,227 [INFO] Image size: 210x210
+2025-04-24 12:30:00,228 [INFO] Dataset size (n): 140000
+2025-04-24 12:30:00,229 [INFO] Validation split: 0.2
+2025-04-24 12:30:00,230 [INFO] Weight decay: 5e-05
+2025-04-24 12:30:00,232 [INFO] Dropout rate: 0.3
+2025-04-24 12:30:00,233 [INFO] Scheduler: plateau
+2025-04-24 12:30:00,234 [INFO] Early stopping patience: 10
+2025-04-24 12:30:00,235 [INFO] Data augmentation: True
+2025-04-24 12:30:00,236 [INFO] Embedding dimension: 512
+2025-04-24 12:30:00,237 [INFO] Loss type: arcface
+2025-04-24 12:30:00,238 [INFO] Margin: 0.5
+2025-04-24 12:30:00,240 [INFO] Scale: 64.0
+2025-04-24 12:30:00,241 [INFO] =============================
+2025-04-24 12:30:00,721 [INFO] Using device: cuda
+2025-04-24 12:30:00,722 [INFO] Using remote paths
+2025-04-24 12:30:00,723 [INFO] Data root: /home/stud/aleks99/.cache/kagglehub/datasets/wildlifedatasets/wildlifereid-10k/versions/6
+2025-04-24 12:30:00,724 [INFO] Save path: /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/
+2025-04-24 12:30:00,795 [INFO] GPU: NVIDIA A100-PCIE-40GB
+2025-04-24 12:30:00,798 [INFO] Using optimized data augmentation pipeline
+2025-04-24 12:30:00,799 [INFO] Loading dataset...
+2025-04-24 12:30:02,986 [INFO] PyTorch version 2.6.0 available.
+2025-04-24 12:30:17,091 [INFO] Dataset split: 89518 training samples, 22379 validation samples
+2025-04-24 12:30:17,294 [INFO] Loading pretrained weights from Hugging Face hub (timm/resnet18.a1_in1k)
+2025-04-24 12:30:17,465 [INFO] [timm/resnet18.a1_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-04-24 12:30:19,408 [INFO] Using ArcFace loss with margin=0.5, scale=64.0
+2025-04-24 12:30:19,414 [INFO] Using ReduceLROnPlateau scheduler
+2025-04-24 12:30:19,416 [INFO] Started epoch 1
+2025-04-24 13:27:38,534 [INFO] [Epoch 1] Train Loss: 12.2331, Val Loss: 11.7552, LR: 0.000100
+2025-04-24 13:27:38,535 [INFO]  Epoch time: 3439.12 sec
+2025-04-24 13:27:39,500 [INFO]  Saved new best model at epoch 1 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 13:27:39,502 [INFO] Started epoch 2
+2025-04-24 14:17:21,971 [INFO] [Epoch 2] Train Loss: 11.7281, Val Loss: 11.5364, LR: 0.000100
+2025-04-24 14:17:21,973 [INFO]  Epoch time: 2982.47 sec
+2025-04-24 14:17:22,881 [INFO]  Saved new best model at epoch 2 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 14:17:22,883 [INFO] Started epoch 3
+2025-04-24 15:05:16,640 [INFO] [Epoch 3] Train Loss: 11.5335, Val Loss: 11.2558, LR: 0.000100
+2025-04-24 15:05:16,642 [INFO]  Epoch time: 2873.76 sec
+2025-04-24 15:05:17,565 [INFO]  Saved new best model at epoch 3 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 15:05:17,566 [INFO] Started epoch 4
+2025-04-24 15:53:09,930 [INFO] [Epoch 4] Train Loss: 11.2837, Val Loss: 10.8823, LR: 0.000100
+2025-04-24 15:53:09,932 [INFO]  Epoch time: 2872.37 sec
+2025-04-24 15:53:10,845 [INFO]  Saved new best model at epoch 4 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 15:53:10,847 [INFO] Started epoch 5
+2025-04-24 16:40:06,806 [INFO] [Epoch 5] Train Loss: 10.9511, Val Loss: 10.4142, LR: 0.000100
+2025-04-24 16:40:06,807 [INFO]  Epoch time: 2815.96 sec
+2025-04-24 16:40:07,800 [INFO]  Saved new best model at epoch 5 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 16:40:07,802 [INFO] Started epoch 6
+2025-04-24 17:26:12,119 [INFO] [Epoch 6] Train Loss: 10.5433, Val Loss: 9.9005, LR: 0.000100
+2025-04-24 17:26:12,121 [INFO]  Epoch time: 2764.32 sec
+2025-04-24 17:26:12,862 [INFO]  Saved new best model at epoch 6 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 17:26:12,864 [INFO] Started epoch 7
+2025-04-24 18:12:25,433 [INFO] [Epoch 7] Train Loss: 10.0702, Val Loss: 9.4230, LR: 0.000100
+2025-04-24 18:12:25,435 [INFO]  Epoch time: 2772.57 sec
+2025-04-24 18:12:26,232 [INFO]  Saved new best model at epoch 7 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 18:12:26,233 [INFO] Started epoch 8
+2025-04-24 18:59:43,673 [INFO] [Epoch 8] Train Loss: 9.5990, Val Loss: 9.0982, LR: 0.000100
+2025-04-24 18:59:43,675 [INFO]  Epoch time: 2837.44 sec
+2025-04-24 18:59:44,485 [INFO]  Saved new best model at epoch 8 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 18:59:44,486 [INFO] Started epoch 9
+2025-04-24 19:45:45,234 [INFO] [Epoch 9] Train Loss: 9.1545, Val Loss: 8.7861, LR: 0.000100
+2025-04-24 19:45:45,236 [INFO]  Epoch time: 2760.75 sec
+2025-04-24 19:45:46,068 [INFO]  Saved new best model at epoch 9 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 19:45:46,069 [INFO] Started epoch 10
+2025-04-24 20:32:35,648 [INFO] [Epoch 10] Train Loss: 8.7248, Val Loss: 8.5965, LR: 0.000100
+2025-04-24 20:32:35,649 [INFO]  Epoch time: 2809.58 sec
+2025-04-24 20:32:36,454 [INFO]  Saved new best model at epoch 10 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 20:32:36,455 [INFO] Started epoch 11
+2025-04-24 21:19:20,384 [INFO] [Epoch 11] Train Loss: 8.3386, Val Loss: 8.3719, LR: 0.000100
+2025-04-24 21:19:20,386 [INFO]  Epoch time: 2803.93 sec
+2025-04-24 21:19:21,234 [INFO]  Saved new best model at epoch 11 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 21:19:21,236 [INFO] Started epoch 12
+2025-04-24 22:06:01,780 [INFO] [Epoch 12] Train Loss: 7.9858, Val Loss: 8.2059, LR: 0.000100
+2025-04-24 22:06:01,782 [INFO]  Epoch time: 2800.55 sec
+2025-04-24 22:06:02,531 [INFO]  Saved new best model at epoch 12 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 22:06:02,532 [INFO] Started epoch 13
+2025-04-24 22:53:12,509 [INFO] [Epoch 13] Train Loss: 7.6720, Val Loss: 8.0691, LR: 0.000100
+2025-04-24 22:53:12,511 [INFO]  Epoch time: 2829.98 sec
+2025-04-24 22:53:13,204 [INFO]  Saved new best model at epoch 13 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 22:53:13,206 [INFO] Started epoch 14
+2025-04-24 23:40:15,735 [INFO] [Epoch 14] Train Loss: 7.3614, Val Loss: 7.9122, LR: 0.000100
+2025-04-24 23:40:15,737 [INFO]  Epoch time: 2822.53 sec
+2025-04-24 23:40:16,416 [INFO]  Saved new best model at epoch 14 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-24 23:40:16,418 [INFO] Started epoch 15
+2025-04-25 00:27:29,846 [INFO] [Epoch 15] Train Loss: 7.0828, Val Loss: 7.8053, LR: 0.000100
+2025-04-25 00:27:29,848 [INFO]  Epoch time: 2833.43 sec
+2025-04-25 00:27:30,645 [INFO]  Saved new best model at epoch 15 to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/resnet18margin05/trained_model.pth
+2025-04-25 00:27:30,681 [INFO] Saved training parameters and metrics to /home/stud/aleks99/bhome/DAT550-Animal-CLEF/model_data/all_model_metrics.csv
+2025-04-25 00:27:30,682 [INFO] Training completed. Starting evaluation...
+2025-04-25 01:28:19,811 [INFO] Evaluation completed successfully
