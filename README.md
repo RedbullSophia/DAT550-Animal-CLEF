@@ -11,11 +11,10 @@ In the model folder are several scripts that serve their individual part in the 
 The pipeline works like this:
 
 1. `model/run_arg.py` gets launched with the desired parameters, using a shell script from the folder "shell_scripts"
-2. `model/run_arg.py` runs a training loop with the given parameters
-3. `model/run_arg.py` runs `model/plot_metrics.py` which plots training_loss vs validation_loss
-4. Lastly `model/run_arg.py` runs `model/evaluate_open_set.py` which evaluates the trained model, making several plots that can be inspected to further visually evaluate the model
-5. Both `model/arg_run.py` and `model/evaluate_open_set.py` calculate metrics and difference in metrics to a reference model if given one, this is all saved under `model_data/all_model_metrics.csv`
-6. Models and their respective plots/metrics are saved under `model_data/model_name`. The actual model.pth files are not saved to GitHub as they are too big - these exist only on the UIS server under the user "aleks99"
+2. `model/run_arg.py` runs a training loop with the given parameters plotting training_loss vs validation_loss.
+3. Lastly `model/run_arg.py` runs `model/evaluate_open_set.py` which evaluates the trained model, making several plots that can be inspected to further visually evaluate the model
+4. Both `model/arg_run.py` and `model/evaluate_open_set.py` calculate metrics and difference in metrics to a reference model if given one, this is all saved under `model_data/all_model_metrics.csv`
+5. Models and their respective plots/metrics are saved under `model_data/model_name`. The actual model.pth files are not saved to GitHub as they are too big - these exist only on the UIS server under the user "aleks99"
 
 ## Infrastructure
 

@@ -9,26 +9,22 @@ from torch.cuda.amp import GradScaler, autocast
 from pytorch_metric_learning.losses import ArcFaceLoss, TripletMarginLoss, ContrastiveLoss, MultiSimilarityLoss, CosFaceLoss
 from pytorch_metric_learning.samplers import MPerClassSampler
 from datetime import datetime
-from utils import get_max_batch_size
+
 from metadata_dataset import WildlifeMetadataDataset
 from ReIDNet import ReIDNet
 import logging
 import time
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR
 import matplotlib
-matplotlib.use('Agg')  # Set the backend to Agg for headless environment
+matplotlib.use('Agg')  
 import matplotlib.pyplot as plt
 import json
 import subprocess
-import sys  # Add this import
+import sys  
 import pandas as pd
-
-# Add new imports for data augmentation
 from torchvision.transforms import RandomHorizontalFlip, RandomRotation, ColorJitter, RandomResizedCrop
 
-# ======================
-# PLOTTING FUNCTION
-# ======================
+
 def update_plot(metrics, save_path):
     """Update and save the training plot"""
     plt.figure(figsize=(10, 6))
@@ -43,9 +39,7 @@ def update_plot(metrics, save_path):
     plt.savefig(os.path.join(save_path, 'training_plot.png'))
     plt.close()
 
-# ======================
-# LOGGING SETUP
-# ======================
+
 def setup_logging(save_path):
     logging.basicConfig(
         level=logging.INFO,
@@ -56,9 +50,8 @@ def setup_logging(save_path):
         ]
     )
 
-# ======================
-# TRAINING FUNCTION
-# ======================
+
+
 def train(model, train_loader, val_loader, optimizer, loss_fn, scaler, device, save_path, num_epochs, 
           scheduler=None, patience=5, loss_type="arcface"):
     best_loss = float("inf")
